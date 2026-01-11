@@ -99,10 +99,12 @@ async function addChapter(){
   const folderBase = `study/${SUBJECT}/${name}`;
 
   // 1) Create folder placeholder
-  const placeholderPath = `${folderBase}/.folder`;
-  await supabase.storage
-    .from(IMAGE_BUCKET)
-    .upload(placeholderPath, new Blob([""]), { upsert: true });
+  const placeholderPath = `${folderBase}/keep.txt`;
+await supabase.storage
+  .from(IMAGE_BUCKET)
+  .upload(placeholderPath, new Blob([" "], { type: "text/plain" }), {
+    upsert: true
+  });
 
   // 2) Upload main.jpg
   const imagePath = `${folderBase}/main.jpg`;
