@@ -24,7 +24,7 @@
   async function loadSubjects() {
     const { data, error } = await supabase2
       .storage
-      .from('images')
+      .from('public/images')
       .download('study.json');   // adjust if folder is named differently
 
     if (error) {
