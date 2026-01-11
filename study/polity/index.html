@@ -91,31 +91,50 @@ function closePopup(){ document.getElementById("popup").style.display="none"; }
 async function addChapter(){
   const name = document.getElementById("chapterName").value.trim();
   const file = document.getElementById("chapterImage").files[0];
-  if(!name || !file){ alert("Enter name & select image"); return; }
+  if(!name || !file){ 
+    alert("Enter name & select image"); 
+    return; 
+  }
 
-  const imagePath = `study/${SUBJECT}/${name}/main.jpg`;
+  const folderBase = `study/${SUBJECT}/${name}`;
 
-  /* 1 — upload image */
-  const { error: imgErr } = await supabase2
+  // 1) Create folder placeholder
+  const placeholderPath = `${folderBase}/.folder`;
+  await supabase.storage
+    .from(IMAGE_BUCKET)
+    .upload(placeholderPath, new Blob([""]), { upsert: true });
+
+  // 2) Upload main.jpg
+  const imagePath = `${folderBase}/main.jpg`;
+  const { error: imgErr } = await supabase
     .storage.from(IMAGE_BUCKET)
-    .upload(imagePath, file, { upsert:true });
+    .upload(imagePath, file, { upsert: true });
 
-  if(imgErr){ alert("Image upload failed"); return; }
+  if(imgErr){
+    alert("Image upload failed");
+    console.error(imgErr);
+    return;
+  }
 
-  /* 2 — read existing json */
-  const { data } = await supabase2.storage.from(STUDY_BUCKET).download("study.json");
+  // 3) Read existing JSON
+  const { data } = await supabase
+    .storage.from(STUDY_BUCKET)
+    .download("study.json");
   const study = JSON.parse(await data.text());
 
-  /* 3 — update object */
+  // 4) Push new chapter name
   if(!study[SUBJECT].chapters.includes(name)){
     study[SUBJECT].chapters.push(name);
   }
 
-  /* 4 — upload updated json */
-  const uploadJson = new Blob([JSON.stringify(study,null,2)], { type:"application/json" });
+  // 5) Upload updated JSON
+  const newJson = new Blob([JSON.stringify(study, null, 2)], {
+    type: "application/json"
+  });
 
-  await supabase2.storage.from(STUDY_BUCKET)
-    .upload("study.json", uploadJson, { upsert:true });
+  await supabase.storage
+    .from(STUDY_BUCKET)
+    .upload("study.json", newJson, { upsert: true });
 
   closePopup();
   loadChapters();
