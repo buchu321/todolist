@@ -1,0 +1,24 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 10px;              /* Outer margin */
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#imageGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;                  /* Gap between images */
+}
+
+#imageGrid img {
+  width: calc(100% - 0px);    /* Take full width inside padding */
+  height: auto;               /* Keep real image height */
+  border-radius: 12px;
+  object-fit: cover;
+  cursor: pointer;
+}
