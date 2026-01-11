@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "question": "Which Act laid the foundation of British rule in India?",
+    "options": ["Regulating Act 1773", "Government of India Act 1858", "Charter Act 1833", "Indian Councils Act 1909"],
+    "correctAnswer": "Regulating Act 1773",
+    "fact": "The Regulating Act 1773 was the first attempt by the British Government to regulate the East India Company’s activities.",
+    "attempted": 0,
+    "right": 0,
+    "wrong": 0,
+    "lastAttempt": null
+  },
+  {
+    "id": 2,
+    "question": "When was the Indian Constitution adopted?",
+    "options": ["26 January 1950", "15 August 1947", "26 November 1949", "2 January 1950"],
+    "correctAnswer": "26 November 1949",
+    "fact": "The Constitution was adopted on 26 November 1949 and came into force on 26 January 1950.",
+    "attempted": 0,
+    "right": 0,
+    "wrong": 0,
+    "lastAttempt": null
+  },
+  {
+    "id": 3,
+    "question": "Who is known as the Father of the Indian Constitution?",
+    "options": ["Mahatma Gandhi", "Jawaharlal Nehru", "Dr. B. R. Ambedkar", "Sardar Patel"],
+    "correctAnswer": "Dr. B. R. Ambedkar",
+    "fact": "Dr. B. R. Ambedkar was the chairman of the Drafting Committee.",
+    "attempted": 0,
+    "right": 0,
+    "wrong": 0,
+    "lastAttempt": null
+  }
+]

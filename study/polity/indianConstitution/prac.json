@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "question": "Who chaired the Drafting Committee of the Indian Constitution?",
+    "options": ["Dr. B. R. Ambedkar", "Rajendra Prasad", "Jawaharlal Nehru", "Subhash Bose"],
+    "correctAnswer": "Dr. B. R. Ambedkar",
+    "fact": "Ambedkar played a key role in shaping constitutional provisions.",
+    "attempted": 0,
+    "right": 0,
+    "wrong": 0,
+    "lastAttempt": null
+  },
+  {
+    "id": 2,
+    "question": "How many members signed the Indian Constitution?",
+    "options": ["284", "389", "299", "300"],
+    "correctAnswer": "284",
+    "fact": "284 members of the Constituent Assembly signed the final draft.",
+    "attempted": 0,
+    "right": 0,
+    "wrong": 0,
+    "lastAttempt": null
+  },
+  {
+    "id": 3,
+    "question": "When did the Indian Constitution come into force?",
+    "options": ["26 Nov 1949", "26 Jan 1950", "15 Aug 1947", "2 Jan 1950"],
+    "correctAnswer": "26 Jan 1950",
+    "fact": "Republic Day marks the day the Constitution became operational.",
+    "attempted": 0,
+    "right": 0,
+    "wrong": 0,
+    "lastAttempt": null
+  }
+]
