@@ -3,13 +3,124 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Polity</title>
+  <title>Polity Chapters</title>
   <link rel="stylesheet" href="../../style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    #popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+    #popupBox {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      width: 80%;
+      max-width: 400px;
+    }
+  </style>
 </head>
 <body>
 
-<h1>Polity</h1>
-<p>Chapter 1: Indian Constitution</p>
+<h1>Polity Chapters</h1>
+
+<div id="chapterGrid"></div>
+
+<button onclick="openPopup()" style="margin-top:20px;">➕ Add Chapter</button>
+
+<!-- POPUP -->
+<div id="popup">
+  <div id="popupBox">
+    <h3>New Chapter</h3>
+    <input type="text" id="chapterName" placeholder="chapter name"><br><br>
+    <input type="file" id="chapterImage" accept="image/*"><br><br>
+    <button onclick="addChapter()">Upload</button>
+    <button onclick="closePopup()">Cancel</button>
+  </div>
+</div>
+
+<script>
+/* CONFIG */
+const SUPABASE_URL = "https://nxbhrwztqivalyaxbodt.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im54Ymhyd3p0cWl2YWx5YXhib2R0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgxNTAxNTQsImV4cCI6MjA4MzcyNjE1NH0.-h0URoccYncxURRs8fXNmAr-iw_SL6rk-NrP73u5ppU";
+const STUDY_BUCKET = "images";
+const IMAGE_BUCKET = "images";
+const SUBJECT = "polity";
+
+const supabase2 = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+/* LOAD STUDY.JSON AND RENDER CHAPTERS */
+async function loadChapters() {
+  const { data, error } = await supabase2
+    .storage.from(STUDY_BUCKET)
+    .download("study.json");
+
+  if (error) return console.error(error);
+
+  const study = JSON.parse(await data.text());
+  const chapters = study[SUBJECT].chapters;
+  const grid = document.getElementById("chapterGrid");
+  grid.innerHTML = "";
+
+  chapters.forEach(ch => {
+    const url = `${SUPABASE_URL}/storage/v1/object/public/${IMAGE_BUCKET}/study/${SUBJECT}/${ch}/main.jpg`;
+    const div = document.createElement("div");
+    div.className = "imageBox";
+    div.innerHTML = `
+      <a href="chapter.html?name=${ch}">
+        <img src="${url}" alt="${ch}">
+      </a>
+      <p style="text-align:center">${ch}</p>
+    `;
+    grid.appendChild(div);
+  });
+}
+
+loadChapters();
+
+/* POPUP CONTROL */
+function openPopup(){ document.getElementById("popup").style.display="flex"; }
+function closePopup(){ document.getElementById("popup").style.display="none"; }
+
+/* ADD CHAPTER */
+async function addChapter(){
+  const name = document.getElementById("chapterName").value.trim();
+  const file = document.getElementById("chapterImage").files[0];
+  if(!name || !file){ alert("Enter name & select image"); return; }
+
+  const imagePath = `study/${SUBJECT}/${name}/main.jpg`;
+
+  /* 1 — upload image */
+  const { error: imgErr } = await supabase2
+    .storage.from(IMAGE_BUCKET)
+    .upload(imagePath, file, { upsert:true });
+
+  if(imgErr){ alert("Image upload failed"); return; }
+
+  /* 2 — read existing json */
+  const { data } = await supabase2.storage.from(STUDY_BUCKET).download("study.json");
+  const study = JSON.parse(await data.text());
+
+  /* 3 — update object */
+  if(!study[SUBJECT].chapters.includes(name)){
+    study[SUBJECT].chapters.push(name);
+  }
+
+  /* 4 — upload updated json */
+  const uploadJson = new Blob([JSON.stringify(study,null,2)], { type:"application/json" });
+
+  await supabase2.storage.from(STUDY_BUCKET)
+    .upload("study.json", uploadJson, { upsert:true });
+
+  closePopup();
+  loadChapters();
+}
+</script>
 
 </body>
 </html>
