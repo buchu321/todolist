@@ -1,0 +1,38 @@
+{
+  "polity": {
+    "chapters": [],
+    "notes": []
+  },
+  "history": {
+    "chapters": [],
+    "notes": []
+  },
+  "geography": {
+    "chapters": [],
+    "notes": []
+  },
+  "economics": {
+    "chapters": [],
+    "notes": []
+  },
+  "currentAffairs": {
+    "chapters": [],
+    "notes": []
+  },
+  "science": {
+    "chapters": [],
+    "notes": []
+  },
+  "english": {
+    "chapters": [],
+    "notes": []
+  },
+  "math": {
+    "chapters": [],
+    "notes": []
+  },
+  "reasoning": {
+    "chapters": [],
+    "notes": []
+  }
+}

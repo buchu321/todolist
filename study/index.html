@@ -5,20 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Study Hub</title>
   <link rel="stylesheet" href="../style.css">
+
+  <!-- Supabase client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
 <h1>Study Subjects</h1>
 
-<div class="imageBox"><a href="polity/index.html"><img               src="https://nxbhrwztqivalyaxbodt.supabase.co/storage/v1/object/public/images/polity.png" alt="Polity"></a></div>
-<div class="imageBox"><a href="history/index.html"><img              src="https://nxbhrwztqivalyaxbodt.supabase.co/storage/v1/object/public/images/history.png" alt="History"></a></div>
-<div class="imageBox"><a href="geography/index.html"><img            src="https://nxbhrwztqivalyaxbodt.supabase.co/storage/v1/object/public/images/geography.png" alt="Geography"></a></div>
-<div class="imageBox"><a href="economics/index.html"><img            src="https://nxbhrwztqivalyaxbodt.supabase.co/storage/v1/object/public/images/economics.png" alt="Economics"></a></div>
-<div class="imageBox"><a href="currentAffairs/index.html"><img       src="https://nxbhrwztqivalyaxbodt.supabase.co/storage/v1/object/public/images/polity.png" alt="Current Affairs"></a></div>
-<div class="imageBox"><a href="science/index.html"><img              src="https://nxbhrwztqivalyaxbodt.supabase.co/storage/v1/object/public/images/science.png" alt="Science"></a></div>
-<div class="imageBox"><a href="english/index.html"><img              src="https://nxbhrwztqivalyaxbodt.supabase.co/storage/v1/object/public/images/english.jpg" alt="English"></a></div>
-<div class="imageBox"><a href="math/index.html"><img                 src="https://nxbhrwztqivalyaxbodt.supabase.co/storage/v1/object/public/images/math.jpg" alt="Math"></a></div>
-<div class="imageBox"><a href="reasoning/index.html"><img            src="https://nxbhrwztqivalyaxbodt.supabase.co/storage/v1/object/public/images/reasoning.png" alt="Reasoning"></a></div>
+<div id="subjectGrid"></div>
+
+<script>
+  const SUPABASE_URL = "https://todolist-hazel-kappa.vercel.app/";
+  const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im54Ymhyd3p0cWl2YWx5YXhib2R0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgxNTAxNTQsImV4cCI6MjA4MzcyNjE1NH0.-h0URoccYncxURRs8fXNmAr-iw_SL6rk-NrP73u5ppU";
+  const FILE_PATH = "images/study.json";  // your uploaded path
+  const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  async function loadSubjects() {
+    const { data, error } = await supabase
+      .storage
+      .from('images')
+      .download('study.json');   // adjust if folder is named differently
+
+    if (error) {
+      console.error(error);
+      return;
+    }
+
+    const text = await data.text();
+    const studyObj = JSON.parse(text);
+
+    const container = document.getElementById("subjectGrid");
+
+    // loop through subjects
+    for (const subject in studyObj) {
+      const div = document.createElement("div");
+      div.className = "imageBox";
+
+      // optional image path pattern you will replace later
+      const imgUrl = `https://nxbhrwztqivalyaxbodt.supabase.co/storage/v1/object/public/images/${subject}.png`;
+
+      // https://nxbhrwztqivalyaxbodt.supabase.co/storage/v1/object/public/images/polity.png
+
+      div.innerHTML = `
+        <a href="${subject}/index.html">
+          <img src="${imgUrl}" alt="${subject}">
+        </a>
+        <p style="text-align:center; font-size:18px;">${subject}</p>
+      `;
+
+      container.appendChild(div);
+    }
+  }
+
+  loadSubjects();
+</script>
 
 </body>
 </html>
