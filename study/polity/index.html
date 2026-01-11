@@ -6,6 +6,7 @@
   <title>Polity Chapters</title>
   <link rel="stylesheet" href="../../style.css">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
   <style>
     #popup {
       display: none;
@@ -36,44 +37,50 @@
 <!-- POPUP -->
 <div id="popup">
   <div id="popupBox">
-    <h3>New Chapter</h3>
+    <h3>Add New Chapter</h3>
     <input type="text" id="chapterName" placeholder="chapter name"><br><br>
     <input type="file" id="chapterImage" accept="image/*"><br><br>
-    <button onclick="addChapter()">Upload</button>
+    <button onclick="addNewChapter()">Upload</button>
     <button onclick="closePopup()">Cancel</button>
   </div>
 </div>
 
 <script>
-/* CONFIG */
-const SUPABASE_URL = "https://nxbhrwztqivalyaxbodt.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im54Ymhyd3p0cWl2YWx5YXhib2R0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgxNTAxNTQsImV4cCI6MjA4MzcyNjE1NH0.-h0URoccYncxURRs8fXNmAr-iw_SL6rk-NrP73u5ppU";
+/* 🔧 CONFIG */
+const SB_URL = "https://nxbhrwztqivalyaxbodt.supabase.co";
+const SB_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im54Ymhyd3p0cWl2YWx5YXhib2R0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgxNTAxNTQsImV4cCI6MjA4MzcyNjE1NH0.-h0URoccYncxURRs8fXNmAr-iw_SL6rk-NrP73u5ppU";
+
 const STUDY_BUCKET = "images";
-const IMAGE_BUCKET = "images";
-const SUBJECT = "polity";
+const IMG_BUCKET = "images";
+const SUBJECT_NAME = "polity";
 
-const supabase2 = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+/* 🧠 NEW supabase variable name */
+const STUDY_DB = supabase.createClient(SB_URL, SB_KEY);
 
-/* LOAD STUDY.JSON AND RENDER CHAPTERS */
-async function loadChapters() {
-  const { data, error } = await supabase2
+/* 📌 LOAD chapters from study.json */
+async function loadChapters(){
+  const { data, error } = await STUDY_DB
     .storage.from(STUDY_BUCKET)
     .download("study.json");
 
-  if (error) return console.error(error);
+  if(error){
+    console.error("JSON read error:", error);
+    return;
+  }
 
-  const study = JSON.parse(await data.text());
-  const chapters = study[SUBJECT].chapters;
+  const studyObj = JSON.parse(await data.text());
+  const chapters = studyObj[SUBJECT_NAME].chapters || [];
   const grid = document.getElementById("chapterGrid");
   grid.innerHTML = "";
 
   chapters.forEach(ch => {
-    const url = `${SUPABASE_URL}/storage/v1/object/public/${IMAGE_BUCKET}/study/${SUBJECT}/${ch}/main.jpg`;
+    const imgUrl = `${SB_URL}/storage/v1/object/public/${IMG_BUCKET}/study/${SUBJECT_NAME}/${ch}/main.jpg`;
+
     const div = document.createElement("div");
     div.className = "imageBox";
     div.innerHTML = `
       <a href="chapter.html?name=${ch}">
-        <img src="${url}" alt="${ch}">
+        <img src="${imgUrl}" alt="${ch}">
       </a>
       <p style="text-align:center">${ch}</p>
     `;
@@ -83,34 +90,29 @@ async function loadChapters() {
 
 loadChapters();
 
-/* POPUP CONTROL */
+/* 🎛 Popup Controls */
 function openPopup(){ document.getElementById("popup").style.display="flex"; }
 function closePopup(){ document.getElementById("popup").style.display="none"; }
 
-/* ADD CHAPTER */
-async function addChapter(){
-  const name = document.getElementById("chapterName").value.trim();
+/* ✨ ADD NEW CHAPTER */
+async function addNewChapter(){
+  const chName = document.getElementById("chapterName").value.trim();
   const file = document.getElementById("chapterImage").files[0];
-  if(!name || !file){ 
-    alert("Enter name & select image"); 
-    return; 
+
+  if(!chName || !file){
+    alert("Enter a chapter name & select an image");
+    return;
   }
 
-  const folderBase = `study/${SUBJECT}/${name}`;
+  const baseFolder = `study/${SUBJECT_NAME}/${chName}`;
 
-  // 1) Create folder placeholder
-  const placeholderPath = `${folderBase}/keep.txt`;
-await supabase.storage
-  .from(IMAGE_BUCKET)
-  .upload(placeholderPath, new Blob([" "], { type: "text/plain" }), {
-    upsert: true
-  });
+  /* 1️⃣ Create folder with keep.txt */
+  await STUDY_DB.storage.from(IMG_BUCKET)
+    .upload(`${baseFolder}/keep.txt`, new Blob([" "], {type:"text/plain"}), { upsert:true });
 
-  // 2) Upload main.jpg
-  const imagePath = `${folderBase}/main.jpg`;
-  const { error: imgErr } = await supabase
-    .storage.from(IMAGE_BUCKET)
-    .upload(imagePath, file, { upsert: true });
+  /* 2️⃣ Upload main.jpg */
+  const { error: imgErr } = await STUDY_DB.storage.from(IMG_BUCKET)
+    .upload(`${baseFolder}/main.jpg`, file, { upsert:true });
 
   if(imgErr){
     alert("Image upload failed");
@@ -118,25 +120,20 @@ await supabase.storage
     return;
   }
 
-  // 3) Read existing JSON
-  const { data } = await supabase
-    .storage.from(STUDY_BUCKET)
-    .download("study.json");
-  const study = JSON.parse(await data.text());
+  /* 3️⃣ Load JSON */
+  const { data } = await STUDY_DB.storage.from(STUDY_BUCKET).download("study.json");
+  const studyObj = JSON.parse(await data.text());
 
-  // 4) Push new chapter name
-  if(!study[SUBJECT].chapters.includes(name)){
-    study[SUBJECT].chapters.push(name);
+  /* 4️⃣ Push new chapter */
+  if(!studyObj[SUBJECT_NAME].chapters.includes(chName)){
+    studyObj[SUBJECT_NAME].chapters.push(chName);
   }
 
-  // 5) Upload updated JSON
-  const newJson = new Blob([JSON.stringify(study, null, 2)], {
-    type: "application/json"
-  });
+  /* 5️⃣ Upload updated JSON */
+  const updatedFile = new Blob([JSON.stringify(studyObj,null,2)], { type:"application/json" });
 
-  await supabase.storage
-    .from(STUDY_BUCKET)
-    .upload("study.json", newJson, { upsert: true });
+  await STUDY_DB.storage.from(STUDY_BUCKET)
+    .upload(`study.json`, updatedFile, { upsert:true });
 
   closePopup();
   loadChapters();
