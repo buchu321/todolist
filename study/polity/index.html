@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport` content="width=device-width, initial-scale=1.0">
+  <meta name="viewport", content="width=device-width, initial-scale=1.0">
   <title>Polity Chapters</title>
   <link rel="stylesheet" href="../../style.css">
   <script src="https://unpkg.com/@supabase/supabase-js@2.39.3/dist/umd/supabase.js"></script>
+
   <style>
     #popup{
       display:none;position:fixed;top:0;left:0;width:100%;height:100%;
@@ -23,9 +24,10 @@
 
 <button onclick="openPopup()" style="margin-top:20px;">➕ Add Chapter</button>
 
+<!-- POPUP -->
 <div id="popup">
   <div id="popupBox">
-    <h3>Add New Chapter</h3>
+    <h3>New Chapter</h3>
     <input type="text" id="chapterName" placeholder="chapter name"><br><br>
     <input type="file" id="chapterImage" accept="image/*"><br><br>
     <button onclick="addChapter()">Upload</button>
@@ -43,27 +45,27 @@ const SUBJECT = "polity";
 
 const SBCLI = window.supabase.createClient(SB_URL, SB_KEY);
 
-/* LOAD CHAPTER LIST */
+/* LOAD CHAPTERS */
 async function loadChapters(){
-  const {data, error} = await SBCLI.storage.from(STUDY_BUCKET).download("study.json");
-  if(error){ console.error(error); return; }
+  const { data, error } = await SBCLI.storage.from(STUDY_BUCKET).download("study.json");
+  if (error) { console.error(error); return; }
 
   const study = JSON.parse(await data.text());
-  const chaptersObj = study[SUBJECT].chapters ?? {};
+  const chaptersObj = study[SUBJECT].chapters || {};
 
   const grid = document.getElementById("chapterGrid");
   grid.innerHTML = "";
 
-  Object.keys(chaptersObj).forEach(ch => {
-    const url = `${SB_URL}/storage/v1/object/public/${IMG_BUCKET}/study/${SUBJECT}/${ch}/main.jpg`;
+  Object.keys(chaptersObj).forEach(chName => {
+    const imgUrl = `${SB_URL}/storage/v1/object/public/${IMG_BUCKET}/study/${SUBJECT}/${chName}/main.jpg`;
 
     const div = document.createElement("div");
     div.className = "imageBox";
     div.innerHTML = `
-      <a href="chapter.html?name=${ch}">
-        <img src="${url}" alt="${ch}">
+      <a href="chapter.html?name=${chName}">
+        <img src="${imgUrl}" alt="${chName}" style="width:100%;border-radius:12px;">
       </a>
-      <p style="text-align:center">${ch}</p>
+      <p style="text-align:center">${chName}</p>
     `;
     grid.appendChild(div);
   });
@@ -75,33 +77,35 @@ loadChapters();
 function openPopup(){ document.getElementById("popup").style.display="flex"; }
 function closePopup(){ document.getElementById("popup").style.display="none"; }
 
-/* ADD CHAPTER */
+/* ADD NEW CHAPTER */
 async function addChapter(){
   const name = document.getElementById("chapterName").value.trim();
   const file = document.getElementById("chapterImage").files[0];
-  if(!name || !file){ alert("Enter name & select image"); return;}
 
-  const basePath = `study/${SUBJECT}/${name}`;
+  if (!name || !file){
+    alert("Enter name & select image");
+    return;
+  }
 
-  /* create folder via placeholder */
+  const folder = `study/${SUBJECT}/${name}`;
+
+  /* Step 1: Force-create folder */
   await SBCLI.storage.from(IMG_BUCKET)
-    .upload(`${basePath}/keep.txt`, new Blob([" "],{type:"text/plain"}), {upsert:true});
+    .upload(`${folder}/keep.txt`, new Blob([" "],{type:"text/plain"}), { upsert:true });
 
-  /* upload main.jpg */
-  const {error:uploadErr} = await SBCLI.storage.from(IMG_BUCKET)
-    .upload(`${basePath}/main.jpg`, file,{upsert:true});
-  if(uploadErr){ alert("upload failed"); return; }
+  /* Step 2: Upload main.jpg */
+  await SBCLI.storage.from(IMG_BUCKET)
+    .upload(`${folder}/main.jpg`, file, { upsert:true });
 
-  /* read json */
-  const {data} = await SBCLI.storage.from(STUDY_BUCKET).download("study.json");
+  /* Step 3: Update study.json */
+  const { data } = await SBCLI.storage.from(STUDY_BUCKET).download("study.json");
   const study = JSON.parse(await data.text());
 
   if(!study[SUBJECT].chapters) study[SUBJECT].chapters = {};
-  if(!study[SUBJECT].chapters[name]) study[SUBJECT].chapters[name] = [];
+  if(!study[SUBJECT].chapters[name]) study[SUBJECT].chapters[name] = []; // starts empty notes array
 
-  /* save JSON back */
-  const newJson = new Blob([JSON.stringify(study,null,2)],{type:"application/json"});
-  await SBCLI.storage.from(STUDY_BUCKET).upload("study.json",newJson,{upsert:true});
+  const newJson = new Blob([JSON.stringify(study,null,2)], { type:"application/json" });
+  await SBCLI.storage.from(STUDY_BUCKET).upload("study.json", newJson, { upsert:true });
 
   closePopup();
   loadChapters();
