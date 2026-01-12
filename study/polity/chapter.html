@@ -7,10 +7,16 @@
 <link rel="stylesheet" href="../../style.css">
 <script src="https://unpkg.com/@supabase/supabase-js@2.39.3/dist/umd/supabase.js"></script>
 <style>
-  #popup{display:none;position:fixed;top:0;left:0;width:100%;height:100%;
-         background:rgba(0,0,0,0.6);justify-content:center;align-items:center;}
-  #popupBox{background:white;padding:20px;border-radius:12px;width:80%;max-width:400px;}
-  .note-img{width:100%;border-radius:12px;margin-bottom:12px;}
+  #popup{
+    display:none;position:fixed;top:0;left:0;width:100%;height:100%;
+    background:rgba(0,0,0,0.6);justify-content:center;align-items:center;
+  }
+  #popupBox{
+    background:white;padding:20px;border-radius:12px;width:80%;max-width:400px;
+  }
+  .note-img{
+    width:100%;border-radius:12px;margin-bottom:12px;
+  }
 </style>
 </head>
 <body>
@@ -19,8 +25,10 @@
 <div id="notesList"></div><br>
 
 <button onclick="openPopup()">➕ Add Note</button>
-<button onclick="takePyq()" style="margin-left:10px;">📘 Take PYQ</button>
+<button onclick="takePyq()" style="margin-left:10px;">📘 PYQ</button>
+<button onclick="takePractice()" style="margin-left:10px;">🧪 Practice</button>
 
+<!-- POPUP -->
 <div id="popup">
   <div id="popupBox">
     <h3>Add Note Image</h3>
@@ -31,67 +39,97 @@
 </div>
 
 <script>
+/* ----- CONFIG WITH YOUR KEYS ----- */
 const SB_URL = "https://nxbhrwztqivalyaxbodt.supabase.co";
 const SB_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im54Ymhyd3p0cWl2YWx5YXhib2R0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgxNTAxNTQsImV4cCI6MjA4MzcyNjE1NH0.-h0URoccYncxURRs8fXNmAr-iw_SL6rk-NrP73u5ppU";
-const STUDY_BUCKET="images";
-const IMG_BUCKET="images";
-const SUBJECT="polity";
+
+const STUDY_BUCKET = "images";
+const IMG_BUCKET = "images";
 
 const SBCLI = window.supabase.createClient(SB_URL, SB_KEY);
 
+/* ---- GET CHAPTER NAME FROM URL ---- */
 const params = new URLSearchParams(window.location.search);
 const CHAPTER = params.get("name");
+const SUBJECT = params.get("subject");
+
 document.getElementById("title").innerText = CHAPTER;
 
+/* ---- LOAD NOTES FROM JSON ---- */
 async function loadNotes(){
-  const {data,error} = await SBCLI.storage.from(STUDY_BUCKET).download("study.json");
-  if(error){console.error(error);return;}
+  const { data, error } = await SBCLI.storage.from(STUDY_BUCKET)
+    .download(`stdy.json?t=${Date.now()}`);
+
+  if(error){ console.error(error); return; }
 
   const study = JSON.parse(await data.text());
-  const notes = study[SUBJECT].chapters[CHAPTER] ?? [];
+
+  const notes = study[SUBJECT]?.chapters?.[CHAPTER] ?? [];
 
   const list = document.getElementById("notesList");
-  list.innerHTML="";
+  list.innerHTML = "";
 
   notes.forEach(url=>{
-    const img=document.createElement("img");
-    img.src=url;
-    img.className="note-img";
+    const img = document.createElement("img");
+    img.src = `${url}?t=${Date.now()}`; // bust cache
+    img.className = "note-img";
     list.appendChild(img);
   });
 }
+
 loadNotes();
 
-function openPopup(){document.getElementById("popup").style.display="flex";}
-function closePopup(){document.getElementById("popup").style.display="none";}
+/* ---- POPUP ---- */
+function openPopup(){ document.getElementById("popup").style.display="flex"; }
+function closePopup(){ document.getElementById("popup").style.display="none"; }
 
+/* ---- UPLOAD NOTE ---- */
 async function uploadNote(){
-  const file=document.getElementById("noteFile").files[0];
-  if(!file){alert("Pick an image");return;}
+  const file = document.getElementById("noteFile").files[0];
+  if(!file){ alert("Pick an image"); return; }
 
-  const stamp=Date.now();
-  const filePath=`study/${SUBJECT}/${CHAPTER}/note-${stamp}.jpg`;
+  const stamp = Date.now();
+  const filePath = `study/${SUBJECT}/${CHAPTER}/note-${stamp}.jpg`;
 
+  /* Upload image */
   await SBCLI.storage.from(IMG_BUCKET)
-    .upload(filePath,file,{upsert:true});
+    .upload(filePath, file, { upsert:true });
 
-  const url=`${SB_URL}/storage/v1/object/public/${IMG_BUCKET}/${filePath}`;
+  /* Build public URL */
+  const url = `${SB_URL}/storage/v1/object/public/${IMG_BUCKET}/${filePath}`;
 
-  const {data} = await SBCLI.storage.from(STUDY_BUCKET).download("study.json");
+  /* Get JSON */
+  const { data } = await SBCLI.storage.from(STUDY_BUCKET)
+    .download(`stdy.json?t=${Date.now()}`);
+  
   const study = JSON.parse(await data.text());
 
-  if(!study[SUBJECT].chapters[CHAPTER]) study[SUBJECT].chapters[CHAPTER]=[];
+  /* Ensure chapter exists */
+  if (!study[SUBJECT].chapters[CHAPTER]) {
+    study[SUBJECT].chapters[CHAPTER] = [];
+  }
+
+  /* Add new note */
   study[SUBJECT].chapters[CHAPTER].push(url);
 
-  const newJson=new Blob([JSON.stringify(study,null,2)],{type:"application/json"});
-  await SBCLI.storage.from(STUDY_BUCKET).upload("study.json",newJson,{upsert:true});
+  /* Save JSON back */
+  const newJson = new Blob([JSON.stringify(study,null,2)], {
+    type:"application/json"
+  });
+  await SBCLI.storage.from(STUDY_BUCKET)
+    .upload("stdy.json", newJson, { upsert:true });
 
   closePopup();
   loadNotes();
 }
 
+/* ---- PAGE BUTTONS ---- */
 function takePyq(){
-  window.location.href=`pyq.html?name=${CHAPTER}`;
+  window.location.href = `../../pyq.html?subject=${SUBJECT}&chapter=${CHAPTER}&type=pyq`;
+}
+
+function takePractice(){
+  window.location.href = `../../practice.html?subject=${SUBJECT}&chapter=${CHAPTER}&type=practice`;
 }
 </script>
 

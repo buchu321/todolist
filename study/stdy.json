@@ -1,6 +1,8 @@
 {
   "polity": {
-    "chapters": {}
+    "chapters": {
+      "indianConstitution" : ["(first note image url)", "second note image url"]
+    }
   },
   "history": {
     "chapters": {}
