@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter</title>
+  <link rel="stylesheet" href="../../style.css">
+  <script src="https://unpkg.com/@supabase/supabase-js@2.39.3/dist/umd/supabase.js"></script>
+  <style>
+    #popup {
+      display:none;
+      position:fixed;
+      top:0;left:0;width:100%;height:100%;
+      background:rgba(0,0,0,0.6);
+      justify-content:center;align-items:center;
+    }
+    #popupBox {
+      background:white;
+      padding:20px;
+      border-radius:12px;
+      width:80%;max-width:400px;
+    }
+    .note-img {
+      width:100%;
+      border-radius:12px;
+      margin-bottom:10px;
+    }
+  </style>
+</head>
+<body>
+
+<h1 id="title"></h1>
+
+<div id="notesList"></div>
+
+<br>
+<button onclick="openPopup()">➕ Add Note</button>
+<button onclick="takePyq()" style="margin-left:10px;">📘 Take PYQ</button>
+
+<!-- POPUP -->
+<div id="popup">
+  <div id="popupBox">
+    <h3>Add Note Image</h3>
+    <input type="file" id="noteFile" accept="image/*"><br><br>
+    <button onclick="uploadNote()">Upload</button>
+    <button onclick="closePopup()">Cancel</button>
+  </div>
+</div>
+
+<script>
+/* CONFIG */
+const SB_URL = "https://nxbhrwztqivalyaxbodt.supabase.co";
+const SB_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im54Ymhyd3p0cWl2YWx5YXhib2R0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgxNTAxNTQsImV4cCI6MjA4MzcyNjE1NH0.-h0URoccYncxURRs8fXNmAr-iw_SL6rk-NrP73u5ppU";
+
+const STUDY_BUCKET = "images";
+const IMG_BUCKET = "images";
+const SUBJECT_NAME = "polity";   // change when copying for other subjects
+
+const DB = window.supabase.createClient(SB_URL, SB_KEY);
+
+/* GET CHAPTER NAME FROM URL */
+const params = new URLSearchParams(window.location.search);
+const CHAPTER = params.get("name");
+document.getElementById("title").innerText = CHAPTER;
+
+/* LOAD study.json + notes */
+async function loadNotes(){
+  const { data, error } = await DB.storage.from(STUDY_BUCKET).download("study.json");
+  if(error){ console.error(error); return; }
+
+  const studyObj = JSON.parse(await data.text());
+  const notes = studyObj[SUBJECT_NAME].notes
+    ?.filter(n => n.chapter === CHAPTER) ?? [];
+
+  const list = document.getElementById("notesList");
+  list.innerHTML = "";
+
+  notes.forEach(n => {
+    const img = document.createElement("img");
+    img.src = n.url;
+    img.className = "note-img";
+    list.appendChild(img);
+  });
+}
+
+loadNotes();
+
+/* POPUP */
+function openPopup(){ document.getElementById("popup").style.display="flex"; }
+function closePopup(){ document.getElementById("popup").style.display="none"; }
+
+/* UPLOAD NOTE IMAGE */
+async function uploadNote(){
+  const file = document.getElementById("noteFile").files[0];
+  if(!file){ alert("Pick an image"); return; }
+
+  /* image name unique */
+  const stamp = Date.now();
+  const filePath = `study/${SUBJECT_NAME}/${CHAPTER}/note-${stamp}.jpg`;
+
+  /* upload file */
+  const { error: imgErr } = await DB.storage
+    .from(IMG_BUCKET)
+    .upload(filePath, file, { upsert:true });
+
+  if(imgErr){ alert("Upload failed"); return; }
+
+  const url = `${SB_URL}/storage/v1/object/public/${IMG_BUCKET}/${filePath}`;
+
+  /* update JSON */
+  const { data } = await DB.storage.from(STUDY_BUCKET).download("study.json");
+  const studyObj = JSON.parse(await data.text());
+
+  if(!studyObj[SUBJECT_NAME].notes) studyObj[SUBJECT_NAME].notes = [];
+  studyObj[SUBJECT_NAME].notes.push({
+    chapter: CHAPTER,
+    url
+  });
+
+  const jsonFile = new Blob([JSON.stringify(studyObj,null,2)], {
+    type:"application/json"
+  });
+
+  await DB.storage.from(STUDY_BUCKET)
+    .upload("study.json", jsonFile, { upsert:true });
+
+  closePopup();
+  loadNotes();
+}
+
+/* TAKE PYQ */
+function takePyq(){
+  window.location.href = `pyq.html?name=${CHAPTER}`;
+}
+</script>
+
+</body>
+</html>
