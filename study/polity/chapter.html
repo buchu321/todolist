@@ -20,11 +20,12 @@
       border-radius:12px;
       width:80%;max-width:400px;
     }
-    .note-img {
-      width:100%;
-      border-radius:12px;
-      margin-bottom:10px;
-    }
+   .note-img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        margin-bottom: 12px;
+        }
   </style>
 </head>
 <body>
@@ -75,10 +76,13 @@ async function loadNotes(){
   const list = document.getElementById("notesList");
   list.innerHTML = "";
 
-  notes.forEach(n => {
+  notes
+  .filter(n => n.chapter === CHAPTER)
+  .forEach(n => {
     const img = document.createElement("img");
     img.src = n.url;
     img.className = "note-img";
+    img.alt = CHAPTER;
     list.appendChild(img);
   });
 }
