@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Gym Day</title>
+
+<script src="https://unpkg.com/@supabase/supabase-js@2.39.3/dist/umd/supabase.js"></script>
+
+<style>
+  body,html{
+    margin:0;padding:0;width:100%;height:100%;
+    background:#ff7f50;display:flex;justify-content:center;
+    align-items:center;font-family:Arial,sans-serif;color:white;
+    overflow:hidden;user-select:none;
+  }
+  #stageName{
+    font-size:36px;font-weight:bold;text-align:center;
+  }
+  #card{
+    display:none;flex-direction:column;width:90%;max-width:380px;
+    background:white;color:black;border-radius:20px;padding:20px;
+    text-align:center;box-shadow:0 5px 20px rgba(0,0,0,0.3);
+  }
+  #card img{
+    width:100%;border-radius:12px;margin-bottom:15px;
+  }
+  #restScreen{
+    display:none;flex-direction:column;justify-content:center;
+    align-items:center;width:100%;height:100%;background:black;
+    color:white;position:absolute;top:0;left:0;
+  }
+  #restTimer{font-size:40px;margin-top:10px;}
+</style>
+</head>
+<body>
+
+<div id="stageName"></div>
+
+<div id="card">
+  <img id="img">
+  <h2 id="exName"></h2>
+  <p id="details"></p>
+  <p id="tips"></p>
+</div>
+
+<div id="restScreen">
+  <h1>REST</h1>
+  <div id="restTimer">60</div>
+</div>
+
+<script>
+/* ------------ CONFIG ------------ */
+const SB_URL = "https://nxbhrwztqivalyaxbodt.supabase.co";
+const SB_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im54Ymhyd3p0cWl2YWx5YXhib2R0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgxNTAxNTQsImV4cCI6MjA4MzcyNjE1NH0.-h0URoccYncxURRs8fXNmAr-iw_SL6rk-NrP73u5ppU";
+
+const BUCKET = "public/images";   // change to gym bucket if needed
+const FILE_PATH = "gym.json";
+
+const SBCLI = window.supabase.createClient(SB_URL, SB_KEY);
+
+/* ------------ URL PARAM ------------ */
+const params = new URLSearchParams(window.location.search);
+const WEEK = params.get("week");
+
+if(!WEEK){
+  document.body.innerHTML="<h2>Missing ?week= parameter</h2>";
+  throw new Error("Missing week param");
+}
+
+/* ------------ Routine State ------------ */
+let routine = {
+ warmup: [], workout: [], abs_addon: [], aerobic: [], yoga:[]
+};
+let phases = ["warmup","workout","abs_addon","aerobic","yoga"];
+let phaseIndex=0;
+let exIndex=0;
+
+/* ------------ UI refs ------------ */
+const stageName = document.getElementById("stageName");
+const card = document.getElementById("card");
+const img = document.getElementById("img");
+const exName = document.getElementById("exName");
+const details = document.getElementById("details");
+const tips = document.getElementById("tips");
+const restScreen = document.getElementById("restScreen");
+const restTimer = document.getElementById("restTimer");
+
+/* ------------ Load JSON from Supabase ------------ */
+async function loadDay(){
+  const { data, error } = await SBCLI.storage
+    .from(BUCKET)
+    .download(`${FILE_PATH}?t=${Date.now()}`);
+
+  if(error){
+    document.body.innerHTML="<h2>No gymPlan.json found</h2>";
+    return;
+  }
+
+  const json = JSON.parse(await data.text());
+  if(!json.week_plan || !json.week_plan[WEEK]){
+    document.body.innerHTML=`<h2>${WEEK} not found in week_plan</h2>`;
+    return;
+  }
+
+  routine = json.week_plan[WEEK];  // 💥 Directly inside week_plan
+  startSession();
+}
+
+/* ------------ Flow ------------ */
+function startSession(){
+  showStageIntro();
+}
+
+function showStageIntro(){
+  let phase = phases[phaseIndex];
+  document.body.style.background="#ff7f50";
+  card.style.display="none";
+  restScreen.style.display="none";
+  stageName.style.display="block";
+  stageName.innerText = phase.toUpperCase();
+  exIndex = 0;
+}
+
+function showExercise(){
+  let phase = phases[phaseIndex];
+  let ex = routine[phase][exIndex];
+
+  stageName.style.display="none";
+  restScreen.style.display="none";
+  card.style.display="flex";
+
+  img.src = ex.image || "";
+  exName.textContent = ex.name || "";
+  details.innerText =
+    `${ex.duration?`Duration: ${ex.duration}`:""} ${ex.reps?` Reps: ${ex.reps}`:""} ${ex.weight_kg?` Weight: ${ex.weight_kg}`:""}`;
+  tips.innerText = ex.tip || ex.tips || "";
+}
+
+function startRest(){
+  let sec=60;
+  restTimer.innerText=sec;
+  restScreen.style.display="flex";
+  card.style.display="none";
+  stageName.style.display="none";
+  let tick=setInterval(()=>{
+    sec--;
+    restTimer.innerText=sec;
+    if(sec<=0){
+      clearInterval(tick);
+      showExercise();
+    }
+  },1000);
+}
+
+/* ------------ Swipe & click ------------ */
+let startX=0;
+document.addEventListener('touchstart', e=> startX = e.touches[0].clientX );
+document.addEventListener('touchend', e=>{
+  if(e.changedTouches[0].clientX - startX > 50){ next(); }
+});
+document.addEventListener('mousedown', e=> startX = e.clientX);
+document.addEventListener('mouseup', e=>{ 
+  if(e.clientX - startX > 50){ next(); }
+});
+
+function next(){
+  let phase = phases[phaseIndex];
+  let arr = routine[phase];
+
+  exIndex++;
+
+  if(exIndex < arr.length){
+    if(phase==="workout"){ return startRest(); }
+    return showExercise();
+  }
+
+  phaseIndex++;
+  if(phaseIndex >= phases.length){
+    stageName.style.display="block";
+    stageName.innerText="DONE 🎉";
+    card.style.display="none";
+    restScreen.style.display="none";
+    return;
+  }
+
+  showStageIntro();
+}
+
+/* Tap anywhere to start */
+document.body.addEventListener("click", ()=>{
+  let phase = phases[phaseIndex];
+  if(routine[phase]?.length>0 && card.style.display==="none" && restScreen.style.display==="none"){
+    showExercise();
+  }
+});
+
+/* ------------ START ------------ */
+loadDay();
+</script>
+
+</body>
+</html>

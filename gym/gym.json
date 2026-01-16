@@ -1,0 +1,630 @@
+{
+  "week_plan": {
+    "Day1_Push": {
+      "warmup": [
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/walking.jpg",
+          "name": "Brisk walk or jog",
+          "duration": "2 min",
+          "tip": "Warm your body slowly"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/arm_circle.jpg",
+          "name": "Arm circles",
+          "duration": "1 min",
+          "tip": "Increase circle size gradually"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/wall_pushup.jpg",
+          "name": "Wall push-ups",
+          "reps": "10",
+          "tip": "Focus on smooth movement"
+        }
+      ],
+      "workout": [
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Barbell%20floor%20press.jpg",
+          "name": "Barbell floor press",
+          "reps": "3x8-10",
+          "weight_kg": "10-20kg",
+          "tip": "Elbows 45° from body"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Dumbbell%20shoulder%20press.jpg",
+          "name": "Dumbbell shoulder press",
+          "reps": "3x8-10",
+          "weight_kg": "4-8kg each",
+          "tip": "Engage core, no leaning"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Dumbbell%20incline%20press.jpg",
+          "name": "Incline dumbbell press",
+          "reps": "3x8-10",
+          "weight_kg": "4-8kg each",
+          "tip": "Squeeze chest at top"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Dumbbell%20fly.jpg",
+          "name": "Dumbbell fly (floor)",
+          "reps": "2x10-12",
+          "weight_kg": "3-6kg each",
+          "tip": "Small bend in elbows"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Overhead%20tricep%20extension.jpg",
+          "name": "Overhead tricep extension",
+          "reps": "3x10",
+          "weight_kg": "6-12kg total",
+          "tip": "Keep elbows near head"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Close-grip%20push-ups.jpg",
+          "name": "Close-grip push-up",
+          "reps": "2x8-10",
+          "tip": "Keep elbows tight"
+        }
+      ],
+      "abs_addon": [
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Light%20plank.jpg",
+          "name": "Plank",
+          "duration": "20-40s",
+          "tip": "Straight line from head to heel"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Dead%20bug.jpg",
+          "name": "Dead bug",
+          "reps": "10 each side",
+          "tip": "Slow controlled limbs"
+        }
+      ],
+      "aerobic": [
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Skipping%20(jump%20rope).jpg",
+          "name": "Skipping",
+          "duration": "10 min",
+          "tip": "Stay relaxed, light jumps"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Stair%20climbs.jpg",
+          "name": "Fast stairs walk",
+          "duration": "3 min",
+          "tip": "Be safe"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/High%20knees.jpg",
+          "name": "High knees and Butt kicks",
+          "duration": "2 min",
+          "tip": "1 min each"
+        }
+      ],
+      "yoga": [
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Chest%20opener%20stretch.jpg",
+          "name": "Chest opener stretch",
+          "duration": "30-40s",
+          "tip": "Open shoulders"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Downward%20dog.jpg",
+          "name": "Downward dog",
+          "duration": "30-40s",
+          "tip": "Press heels gently down"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/shoulder%20stretch.jpg",
+          "name": "Tricep shoulder stretch",
+          "duration": "30-40s",
+          "tip": "na"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Cat%E2%80%93Cow.jpg",
+          "name": "Cat-Cow",
+          "duration": "30-40s",
+          "tip": "NA"
+        }
+      ]
+    },
+
+    "Day2_Pull": {
+      "warmup": [
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/walking.jpg",
+          "name": "March or jog",
+          "duration": "2 min",
+          "tip": "Warm muscles gradually"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Hip%20hinge%20drill.jpg",
+          "name": "Hip hinge drill",
+          "reps": "10",
+          "tip": "Neutral spine"
+        }
+      ],
+      "workout": [
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Barbell%20bent-over%20row.jpg",
+          "name": "Barbell bent-over row",
+          "reps": "3x8-10",
+          "weight_kg": "10-25kg",
+          "tip": "Pull elbows behind body"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Dumbbell%20one-arm%20row.jpg",
+          "name": "1-arm dumbbell row",
+          "reps": "3x8 each side",
+          "weight_kg": "5-10kg",
+          "tip": "Drive elbow to hip"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Barbell%20Romanian%20deadlift2.jpg",
+          "name": "Barbell Romanian deadlift",
+          "reps": "3x8-10",
+          "weight_kg": "10-25kg",
+          "tip": "Hinge at hips, soft knees"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Dumbbell%20bicep%20curl.jpg",
+          "name": "Dumbbell bicep curl",
+          "reps": "3x10",
+          "weight_kg": "4-8kg each",
+          "tip": "Elbows stay glued"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Hammer%20curls.jpg",
+          "name": "Hammer curl",
+          "reps": "2x10",
+          "weight_kg": "4-8kg each",
+          "tip": "Neutral wrist"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Farmer%20carry.jpg",
+          "name": "Farmer carry",
+          "duration": "3x30-40s",
+          "weight_kg": "6-12kg each",
+          "tip": "Tight core, tall posture"
+        }
+      ],
+      "abs_addon": [
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Dumbbell%20Russian%20twists.jpg",
+          "name": "Russian twists",
+          "reps": "20",
+          "weight_kg": "2-6kg optional",
+          "tip": "Twist torso, not arms"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Side%20plank.jpg",
+          "name": "Side plank",
+          "duration": "20s each side",
+          "tip": "Hips stacked"
+        }
+      ],
+      "aerobic": [
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Shadow%20boxing.jpg",
+          "name": "Shadow boxing",
+          "duration": "10 min",
+          "tip": "Relax shoulders"
+        }
+      ],
+      "yoga": [
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Child%E2%80%99s%20pose.jpg",
+          "name": "Child pose",
+          "duration": "40s",
+          "tip": "Slow breathing"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Standing%20forward%20fold.jpg",
+          "name": "Standing forward fold",
+          "duration": "40s",
+          "tip": "Slow breathing"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Cobra%20stretch.jpg",
+          "name": "Cobra",
+          "duration": "40s",
+          "tip": "Slow breathing"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Neck%20rotations.jpg",
+          "name": "Neck Rotation",
+          "duration": "40s",
+          "tip": "Slow breathing"
+        }
+      ]
+    },
+
+    "Day3_Legs": {
+      "warmup": [
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Spot%20jog.jpg",
+          "name": "Spot jog",
+          "duration": "2 min",
+          "tip": "Warm quads + calves"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Bodyweight%20squats.jpg",
+          "name": "Bodyweight squats",
+          "reps": "15",
+          "tip": "Push knees outward"
+        }
+      ],
+      "workout": [
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Barbell%20squat.jpg",
+          "name": "Barbell squat",
+          "reps": "3x8-10",
+          "weight_kg": "10-25kg",
+          "tip": "Chest tall, heels down"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Dumbbell%20lunge.jpg",
+          "name": "Dumbbell lunges",
+          "reps": "3x8 each leg",
+          "weight_kg": "4-10kg each",
+          "tip": "Step long to protect knee"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Barbell%20Romanian%20deadlift.jpg",
+          "name": "Barbell RDL",
+          "reps": "3x8-10",
+          "weight_kg": "10-25kg",
+          "tip": "Hamstring stretch, tight core"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Dumbbell%20step-ups.jpg",
+          "name": "Dumbbell step-ups",
+          "reps": "2x10 each leg",
+          "weight_kg": "4-8kg each",
+          "tip": "Drive through heel"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Standing%20calf%20raises.jpg",
+          "name": "Calf raises",
+          "reps": "3x15",
+          "weight_kg": "Optional 2-6kg",
+          "tip": "Pause at top"
+        }
+      ],
+      "abs_addon": [
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Leg%20raises.jpg",
+          "name": "Leg raises",
+          "reps": "10-12",
+          "tip": "Lower slowly"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Bird%20dog.jpg",
+          "name": "Bird dog",
+          "reps": "10 each side",
+          "tip": "Hips steady"
+        }
+      ],
+      "aerobic": [
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Stair%20climbs.jpg",
+          "name": "Stair climbing",
+          "duration": "10 min",
+          "tip": "Steady breathing"
+        }
+      ],
+      "yoga": [
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Low%20lunge.jpg",
+          "name": "Low lunge",
+          "duration": "30s each",
+          "tip": "Hip forward"
+        }
+      ]
+    },
+
+    "Day4_Core": {
+      "warmup": [
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/walking.jpg",
+          "name": "March or jog",
+          "duration": "2 min",
+          "tip": "Loosen torso"
+        }
+      ],
+      "workout": [
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Light%20plank.jpg",
+          "name": "Plank",
+          "duration": "3x20-40s",
+          "tip": "Do not sag hips"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Side%20plank.jpg",
+          "name": "Side plank",
+          "duration": "2x20s each",
+          "tip": "Straight body line"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Dumbbell%20Russian%20twists.jpg",
+          "name": "Russian twists",
+          "reps": "3x20",
+          "weight_kg": "2-5kg optional",
+          "tip": "Twist upper body"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Back%20extension%20(Superman%20on%20floor).jpg",
+          "name": "Superman",
+          "reps": "3x10",
+          "tip": "Squeeze glutes + back"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Bird%20dog.jpg",
+          "name": "Bird dog",
+          "reps": "2x10 each",
+          "tip": "Slow and controlled"
+        }
+      ],
+      "abs_addon": [
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Bicycle%20crunch.jpg",
+          "name": "Bicycle crunch",
+          "reps": "20-30",
+          "tip": "Elbow to opposite knee"
+        }
+      ],
+      "aerobic": [
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/hiit%203030.jpg",
+          "name": "HIIT 30/30",
+          "duration": "12-15 min",
+          "tip": "30s fast, 30s slow"
+        }
+      ],
+      "yoga": [
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Seated%20twist.jpg",
+          "name": "Seated twist",
+          "duration": "30s each",
+          "tip": "Gentle turns"
+        }
+      ]
+    },
+
+    "Day5_Glutes": {
+      "warmup": [
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/walking.jpg",
+          "name": "Walk or jog",
+          "duration": "2-3 min",
+          "tip": "Raise temperature"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Glute%20bridges.jpg",
+          "name": "Glute bridge",
+          "reps": "15",
+          "tip": "Drive knees outward"
+        }
+      ],
+      "workout": [
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Barbell%20hip%20thrust.jpg",
+          "name": "Barbell hip thrust",
+          "reps": "3x8-10",
+          "weight_kg": "10-25kg",
+          "tip": "Pause + squeeze at top"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Bulgarian%20split%20squat.jpg",
+          "name": "Bulgarian split squat",
+          "reps": "3x8 each leg",
+          "weight_kg": "4-10kg each",
+          "tip": "Push through front heel"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Dumbbell%20sumo%20squat.jpg",
+          "name": "Dumbbell sumo squat",
+          "reps": "3x8-10",
+          "weight_kg": "6-12kg total",
+          "tip": "Wide stance"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Barbell%20Romanian%20deadlift.jpg",
+          "name": "Dumbbell RDL",
+          "reps": "3x10",
+          "weight_kg": "4-10kg each",
+          "tip": "Hinge, not bend"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Glute%20bridge%20burnout.jpg",
+          "name": "Glute bridge burnout",
+          "reps": "1x20-25",
+          "tip": "Stay in control"
+        }
+      ],
+      "abs_addon": [
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Light%20plank.jpg",
+          "name": "Plank",
+          "duration": "30-40s",
+          "tip": "Brace core lightly"
+        }
+      ],
+      "aerobic": [
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Skipping%20(jump%20rope).jpg",
+          "name": "Step-ups or skipping",
+          "duration": "10 min",
+          "tip": "Keep moving steady"
+        }
+      ],
+      "yoga": [
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Pigeon%20pose.jpg",
+          "name": "Pigeon pose",
+          "duration": "30s each",
+          "tip": "Ease into stretch"
+        }
+      ]
+    },
+
+    "Day6_Yoga": {
+      "warmup": [
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/walking.jpg",
+          "name": "Brisk walk or jog",
+          "duration": "2 min",
+          "tip": "Warm your body slowly"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/arm_circle.jpg",
+          "name": "Arm circles",
+          "duration": "1 min",
+          "tip": "Increase circle size gradually"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/wall_pushup.jpg",
+          "name": "Wall push-ups",
+          "reps": "10",
+          "tip": "Focus on smooth movement"
+        }
+      ],
+      "workout": [],
+      "abs_addon": [],
+      "aerobic": [
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Skipping%20(jump%20rope).jpg",
+          "name": "Step-ups or skipping",
+          "duration": "10 min",
+          "tip": "Keep moving steady"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/hiit%203030.jpg",
+          "name": "HIIT 30/30",
+          "duration": "12-15 min",
+          "tip": "30s fast, 30s slow"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Stair%20climbs.jpg",
+          "name": "Stair climbing",
+          "duration": "10 min",
+          "tip": "Steady breathing"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Shadow%20boxing.jpg",
+          "name": "Shadow boxing",
+          "duration": "10 min",
+          "tip": "Relax shoulders"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/High%20knees.jpg",
+          "name": "High knees and Butt kicks",
+          "duration": "2 min",
+          "tip": "1 min each"
+        }
+      ],
+      "yoga": [
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Chest%20opener%20stretch.jpg",
+          "name": "Chest opener stretch",
+          "duration": "30-40s",
+          "tip": "Open shoulders"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Downward%20dog.jpg",
+          "name": "Downward dog",
+          "duration": "30-40s",
+          "tip": "Press heels gently down"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/shoulder%20stretch.jpg",
+          "name": "Tricep shoulder stretch",
+          "duration": "30-40s",
+          "tip": "na"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Cat%E2%80%93Cow.jpg",
+          "name": "Cat-Cow",
+          "duration": "30-40s",
+          "tip": "NA"
+        },
+
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Child%E2%80%99s%20pose.jpg",
+          "name": "Child pose",
+          "duration": "40s",
+          "tip": "Slow breathing"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Standing%20forward%20fold.jpg",
+          "name": "Standing forward fold",
+          "duration": "40s",
+          "tip": "Slow breathing"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Cobra%20stretch.jpg",
+          "name": "Cobra",
+          "duration": "40s",
+          "tip": "Slow breathing"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Neck%20rotations.jpg",
+          "name": "Neck Rotation",
+          "duration": "40s",
+          "tip": "Slow breathing"
+        },
+
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Low%20lunge.jpg",
+          "name": "Low lunge",
+          "duration": "30s each",
+          "tip": "Hip forward"
+        },
+
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Seated%20twist.jpg",
+          "name": "Seated twist",
+          "duration": "30s each",
+          "tip": "Gentle turns"
+        },
+
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Pigeon%20pose.jpg",
+          "name": "Pigeon pose",
+          "duration": "30s each",
+          "tip": "Ease into stretch"
+        },
+
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Frog%20pose%20(deep%20stretch).jpg",
+          "name": "Frog pose",
+          "duration": "30s each",
+          "tip": "Ease into stretch"
+        },
+
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/malasana.jpg",
+          "name": "Malasana",
+          "duration": "30s each",
+          "tip": "Ease into stretch"
+        },
+
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Seated%20Forward%20Fold.jpg",
+          "name": "Seated Forward Fold",
+          "duration": "30s each",
+          "tip": "Ease into stretch"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Happy%20baby%20pose.webp",
+          "name": "Happy baby pose",
+          "duration": "30s each",
+          "tip": "Ease into stretch"
+        },
+        {
+          "image": "https://pub-092ca6dae18c4c0294144290f2c0b8eb.r2.dev/Supta%20Matsyendrasana.jpg",
+          "name": "Supta Matsyendrasana",
+          "duration": "30s each",
+          "tip": "Ease into stretch"
+        }
+      ]
+    }
+  }
+}

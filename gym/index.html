@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Gym Weeks</title>
+<script src="https://unpkg.com/@supabase/supabase-js@2.39.3/dist/umd/supabase.js"></script>
+<style>
+  .btn{
+    width:100%;padding:12px;margin:8px 0;border-radius:8px;
+    border:none;background:#222;color:white;font-size:18px;
+    cursor:pointer;
+  }
+</style>
+</head>
+<body>
+
+<h1>Gym Routine Plan</h1>
+<div id="weekList"></div>
+
+<script>
+/* CONFIG */
+const SB_URL = "https://nxbhrwztqivalyaxbodt.supabase.co";
+const SB_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im54Ymhyd3p0cWl2YWx5YXhib2R0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgxNTAxNTQsImV4cCI6MjA4MzcyNjE1NH0.-h0URoccQncxURRs8fXNmAr-iw_SL6rk-NrP73u5ppU";
+
+const STUDY_BUCKET = "public/images"; // or gymData if you create new bucket
+const SBCLI = window.supabase.createClient(SB_URL, SB_KEY);
+
+/* FILE LOCATION (YOU WILL UPLOAD) */
+const FILE_PATH = "gym.json"; // save file here
+
+async function loadGym(){
+  const { data, error } = await SBCLI.storage
+    .from(STUDY_BUCKET)
+    .download(`${FILE_PATH}?t=${Date.now()}`);
+
+  if(error){
+    document.getElementById("weekList").innerHTML =
+      `<p>No gym plan uploaded yet.</p>`;
+    return;
+  }
+
+  const gym = JSON.parse(await data.text());
+
+  const weeks = Object.keys(gym.week_plan || {});
+  const list = document.getElementById("weekList");
+  list.innerHTML = "";
+
+  if(weeks.length === 0){
+    list.innerHTML = "<p>No weeks found.</p>";
+    return;
+  }
+console.log(weeks)
+  weeks.forEach(w=>{
+    const btn = document.createElement("button");
+    btn.className = "btn";
+    btn.innerText = w;
+    btn.onclick = () => {
+      window.location.href = `week.html?week=${w}`;
+    };
+    list.appendChild(btn);
+  });
+}
+
+loadGym();
+</script>
+
+</body>
+</html>
