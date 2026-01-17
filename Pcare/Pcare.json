@@ -1,0 +1,747 @@
+{
+  "weekPlan": {
+    "monday": {
+      "morning": {
+        "shower": {
+          "bodyWash": {
+            "name": "Bioderma Atoderm Shower Gel",
+            "image": "",
+            "whenToUse": "Morning shower",
+            "howToUse": "Gently cleanse entire body",
+            "duration": "60–90 seconds",
+            "washProcedure": "Rinse with lukewarm water",
+            "tip": "Avoid harsh scrubbing"
+          },
+          "groinWash": {
+            "name": "Sebamed Intimate Wash pH 3.8",
+            "image": "",
+            "whenToUse": "Morning shower",
+            "howToUse": "Use externally only",
+            "duration": "20–30 seconds",
+            "washProcedure": "Rinse thoroughly and pat dry",
+            "tip": "Controls odour and irritation"
+          }
+        },
+        "faceCare": {
+          "cleanser": {
+            "name": "La Roche-Posay Toleriane Hydrating Cleanser",
+            "image": "",
+            "whenToUse": "After shower",
+            "howToUse": "Massage gently on damp face",
+            "duration": "30 seconds",
+            "washProcedure": "Rinse with cool water",
+            "tip": "Barrier-safe daily cleanser"
+          },
+          "vitaminC": {
+            "name": "La Roche-Posay Pure Vitamin C10 Serum",
+            "image": "",
+            "whenToUse": "Morning",
+            "howToUse": "Apply 2–3 drops",
+            "duration": "Leave on",
+            "washProcedure": "Do not wash",
+            "tip": "Brightens and reduces tan gradually"
+          },
+          "sunscreen": {
+            "name": "La Roche-Posay Anthelios SPF 50+",
+            "image": "",
+            "whenToUse": "Morning (last step)",
+            "howToUse": "Two finger-length amount",
+            "duration": "Leave on",
+            "washProcedure": "Wash at night",
+            "tip": "Never skip"
+          }
+        },
+        "odourCare": {
+          "underarm": {
+            "name": "Vichy 48H Anti-Perspirant Roll-On",
+            "image": "",
+            "whenToUse": "Night",
+            "howToUse": "Apply on clean, completely dry underarms",
+            "duration": "Overnight",
+            "washProcedure": "Wash next morning during shower",
+            "tip": "Night application works best for sweat control"
+          }
+        },
+
+        "hairCare": {
+          "scalpSerum": {
+            "name": "The Ordinary Multi-Peptide Serum for Hair Density",
+            "image": "",
+            "whenToUse": "Morning",
+            "howToUse": "Apply few drops to scalp and massage lightly",
+            "duration": "Leave on",
+            "washProcedure": "No wash needed",
+            "tip": "Safe to use away from minoxidil timing"
+          }
+        }
+      },
+      "evening": {
+        "bodyCare": {
+          "bodyMoisturiser": {
+            "name": "Cetaphil Moisturising Cream",
+            "image": "",
+            "whenToUse": "Night",
+            "howToUse": "Apply generously all over body",
+            "duration": "Overnight",
+            "washProcedure": "Wash next day",
+            "tip": "Daily skin barrier repair"
+          }
+        },
+        "buttCare": {
+          "buttMoisturiser": {
+            "name": "CeraVe Moisturising Cream",
+            "image": "",
+            "whenToUse": "Night",
+            "howToUse": "Massage gently on butt area",
+            "duration": "Overnight",
+            "washProcedure": "Wash next day",
+            "tip": "Prevents friction darkening"
+          }
+        },
+        "hairCare": {
+          "minoxidil": {
+            "name": "Minoxidil 5%",
+            "image": "",
+            "whenToUse": "Night",
+            "howToUse": "Apply exactly 1 ml on dry scalp",
+            "duration": "Overnight",
+            "washProcedure": "Do not wash for 6–8 hours",
+            "tip": "No oil or serum after application"
+          }
+        }
+      }
+    },
+    "tuesday": {
+      "morning": {
+        "shower": {
+          "bodyWash": {
+            "name": "Bioderma Atoderm Shower Gel",
+            "image": "",
+            "whenToUse": "Morning shower",
+            "howToUse": "Gentle full-body cleanse",
+            "duration": "60 seconds",
+            "washProcedure": "Rinse thoroughly",
+            "tip": "Avoid hot water"
+          },
+          "hairWash": {
+            "name": "Ducray Anaphase+ Anti-Hair Loss Shampoo",
+            "image": "",
+            "whenToUse": "Morning (twice weekly wash)",
+            "howToUse": "Massage gently into scalp",
+            "duration": "60 seconds",
+            "washProcedure": "Rinse thoroughly",
+            "tip": "Supports hair treated with minoxidil"
+          },
+          "groinWash": {
+            "name": "Sebamed Intimate Wash pH 3.8",
+            "image": "",
+            "whenToUse": "Morning",
+            "howToUse": "External use only",
+            "duration": "20–30 seconds",
+            "washProcedure": "Rinse and pat dry",
+            "tip": "Daily hygiene essential"
+          }
+        },
+        "faceCare": {
+          "cleanser": {
+            "name": "La Roche-Posay Toleriane Hydrating Cleanser",
+            "image": "",
+            "whenToUse": "After shower",
+            "howToUse": "Gentle massage",
+            "duration": "30 seconds",
+            "washProcedure": "Rinse",
+            "tip": "Daily use safe"
+          },
+          "niacinamide": {
+            "name": "Paula’s Choice 10% Niacinamide Booster",
+            "image": "",
+            "whenToUse": "Morning (twice weekly)",
+            "howToUse": "Apply 2–3 drops",
+            "duration": "Leave on",
+            "washProcedure": "Do not wash",
+            "tip": "Improves pores and uneven tone"
+          },
+          "sunscreen": {
+            "name": "La Roche-Posay Anthelios SPF 50+",
+            "image": "",
+            "whenToUse": "Morning",
+            "howToUse": "Two finger-length amount",
+            "duration": "Leave on",
+            "washProcedure": "Wash at night",
+            "tip": "Essential daily"
+          }
+        },
+        "odourCare": {
+          "underarm": {
+            "name": "Vichy 48H Anti-Perspirant Roll-On",
+            "image": "",
+            "whenToUse": "Night",
+            "howToUse": "Apply on clean, completely dry underarms",
+            "duration": "Overnight",
+            "washProcedure": "Wash next morning during shower",
+            "tip": "Night application works best for sweat control"
+          }
+        }
+      },
+      "evening": {
+        "bodyCare": {
+          "bodyMoisturiser": {
+            "name": "Cetaphil Moisturising Cream",
+            "image": "",
+            "whenToUse": "Night",
+            "howToUse": "Apply all over body",
+            "duration": "Overnight",
+            "washProcedure": "Wash next day",
+            "tip": "Daily non-negotiable"
+          }
+        },
+        "buttCare": {
+          "buttMoisturiser": {
+            "name": "CeraVe Moisturising Cream",
+            "image": "",
+            "whenToUse": "Night",
+            "howToUse": "Massage gently",
+            "duration": "Overnight",
+            "washProcedure": "Wash next day",
+            "tip": "Maintains smoothness"
+          }
+        },
+        "hairCare": {
+          "minoxidil": {
+            "name": "Minoxidil 5%",
+            "image": "",
+            "whenToUse": "Night",
+            "howToUse": "Apply 1 ml on scalp",
+            "duration": "Overnight",
+            "washProcedure": "Do not wash",
+            "tip": "Consistency is key"
+          }
+        }
+      }
+    },
+    "wednesday": {
+      "morning": {
+        "shower": {
+          "bodyWash": {
+            "name": "Bioderma Atoderm Shower Gel",
+            "image": "",
+            "whenToUse": "Morning shower",
+            "howToUse": "Gentle cleanse",
+            "duration": "60 seconds",
+            "washProcedure": "Rinse",
+            "tip": "Recovery-focused day"
+          },
+          "groinWash": {
+            "name": "Sebamed Intimate Wash pH 3.8",
+            "image": "",
+            "whenToUse": "Morning",
+            "howToUse": "External use only",
+            "duration": "20 seconds",
+            "washProcedure": "Rinse and pat dry",
+            "tip": "Prevents odour"
+          }
+        },
+        "faceCare": {
+          "cleanser": {
+            "name": "La Roche-Posay Toleriane Hydrating Cleanser",
+            "image": "",
+            "whenToUse": "After shower",
+            "howToUse": "Gentle massage",
+            "duration": "30 seconds",
+            "washProcedure": "Rinse",
+            "tip": "No strong actives today"
+          },
+          "sunscreen": {
+            "name": "La Roche-Posay Anthelios SPF 50+",
+            "image": "",
+            "whenToUse": "Morning",
+            "howToUse": "Apply generously",
+            "duration": "Leave on",
+            "washProcedure": "Wash at night",
+            "tip": "Protects skin recovery"
+          }
+        },
+        "hairCare": {
+          "scalpSerum": {
+            "name": "The Ordinary Multi-Peptide Hair Serum",
+            "image": "",
+            "whenToUse": "Morning",
+            "howToUse": "Few drops, massage lightly",
+            "duration": "Leave on",
+            "washProcedure": "No wash",
+            "tip": "Strengthens scalp health"
+          }
+        },
+        "odourCare": {
+          "underarm": {
+            "name": "Vichy 48H Anti-Perspirant Roll-On",
+            "image": "",
+            "whenToUse": "Night",
+            "howToUse": "Apply on clean, completely dry underarms",
+            "duration": "Overnight",
+            "washProcedure": "Wash next morning during shower",
+            "tip": "Night application works best for sweat control"
+          }
+        }
+      },
+      "evening": {
+        "bodyCare": {
+          "bodyMoisturiser": {
+            "name": "Cetaphil Moisturising Cream",
+            "image": "",
+            "whenToUse": "Night",
+            "howToUse": "Apply all over body",
+            "duration": "Overnight",
+            "washProcedure": "Wash next day",
+            "tip": "Never skip moisturiser"
+          }
+        },
+        "buttCare": {
+          "buttMoisturiser": {
+            "name": "CeraVe Moisturising Cream",
+            "image": "",
+            "whenToUse": "Night",
+            "howToUse": "Massage gently",
+            "duration": "Overnight",
+            "washProcedure": "Wash next day",
+            "tip": "Daily care only (no actives)"
+          }
+        },
+        "hairCare": {
+          "minoxidil": {
+            "name": "Minoxidil 5%",
+            "image": "",
+            "whenToUse": "Night",
+            "howToUse": "Apply 1 ml on scalp",
+            "duration": "Overnight",
+            "washProcedure": "Do not wash",
+            "tip": "Avoid touching scalp"
+          }
+        }
+      }
+    },
+    "thursday": {
+      "morning": {
+        "shower": {
+          "bodyWash": {
+            "name": "Bioderma Atoderm Shower Gel",
+            "image": "",
+            "whenToUse": "Morning shower",
+            "howToUse": "Gently cleanse entire body",
+            "duration": "60 seconds",
+            "washProcedure": "Rinse thoroughly",
+            "tip": "Avoid hot water"
+          },
+          "groinWash": {
+            "name": "Sebamed Intimate Wash pH 3.8",
+            "image": "",
+            "whenToUse": "Morning shower",
+            "howToUse": "External use only",
+            "duration": "20–30 seconds",
+            "washProcedure": "Rinse and pat dry",
+            "tip": "Daily odour control"
+          }
+        },
+        "faceCare": {
+          "cleanser": {
+            "name": "La Roche-Posay Toleriane Hydrating Cleanser",
+            "image": "",
+            "whenToUse": "After shower",
+            "howToUse": "Gentle massage",
+            "duration": "30 seconds",
+            "washProcedure": "Rinse",
+            "tip": "Barrier maintenance day"
+          },
+          "sunscreen": {
+            "name": "La Roche-Posay Anthelios SPF 50+",
+            "image": "",
+            "whenToUse": "Morning",
+            "howToUse": "Two finger-length amount",
+            "duration": "Leave on",
+            "washProcedure": "Wash at night",
+            "tip": "Never skip"
+          }
+        },
+        "hairCare": {
+          "scalpSerum": {
+            "name": "The Ordinary Multi-Peptide Hair Serum",
+            "image": "",
+            "whenToUse": "Morning",
+            "howToUse": "Few drops, massage lightly",
+            "duration": "Leave on",
+            "washProcedure": "No wash",
+            "tip": "Supports scalp health"
+          }
+        }
+      },
+      "evening": {
+        "bodyCare": {
+          "bodyMoisturiser": {
+            "name": "Cetaphil Moisturising Cream",
+            "image": "",
+            "whenToUse": "Night",
+            "howToUse": "Apply all over body",
+            "duration": "Overnight",
+            "washProcedure": "Wash next day",
+            "tip": "Daily essential"
+          }
+        },
+        "buttCare": {
+          "buttMoisturiser": {
+            "name": "CeraVe Moisturising Cream",
+            "image": "",
+            "whenToUse": "Night",
+            "howToUse": "Massage gently",
+            "duration": "Overnight",
+            "washProcedure": "Wash next day",
+            "tip": "Prevents friction darkening"
+          }
+        },
+        "odourCare": {
+          "underarm": {
+            "name": "Vichy 48H Anti-Perspirant Roll-On",
+            "image": "",
+            "whenToUse": "Night",
+            "howToUse": "Apply on clean dry underarms",
+            "duration": "Overnight",
+            "washProcedure": "Wash next day",
+            "tip": "Medical-grade odour control"
+          }
+        },
+        "hairCare": {
+          "minoxidil": {
+            "name": "Minoxidil 5%",
+            "image": "",
+            "whenToUse": "Night",
+            "howToUse": "Apply 1 ml on dry scalp",
+            "duration": "Overnight",
+            "washProcedure": "Do not wash 6–8 hours",
+            "tip": "No oil or serum after"
+          }
+        }
+      }
+    },
+
+    "friday": {
+      "morning": {
+        "shower": {
+          "bodyWash": {
+            "name": "Bioderma Atoderm Shower Gel",
+            "image": "",
+            "whenToUse": "Morning",
+            "howToUse": "Gentle cleanse",
+            "duration": "60 seconds",
+            "washProcedure": "Rinse",
+            "tip": "Recovery-focused day"
+          },
+          "groinWash": {
+            "name": "Sebamed Intimate Wash pH 3.8",
+            "image": "",
+            "whenToUse": "Morning",
+            "howToUse": "External only",
+            "duration": "20 seconds",
+            "washProcedure": "Rinse and pat dry",
+            "tip": "Prevents odour"
+          }
+        },
+        "faceCare": {
+          "cleanser": {
+            "name": "La Roche-Posay Toleriane Hydrating Cleanser",
+            "image": "",
+            "whenToUse": "After shower",
+            "howToUse": "Gentle massage",
+            "duration": "30 seconds",
+            "washProcedure": "Rinse",
+            "tip": "No actives today"
+          },
+          "sunscreen": {
+            "name": "La Roche-Posay Anthelios SPF 50+",
+            "image": "",
+            "whenToUse": "Morning",
+            "howToUse": "Apply generously",
+            "duration": "Leave on",
+            "washProcedure": "Wash at night",
+            "tip": "Protect skin"
+          }
+        },
+        "hairCare": {
+          "scalpSerum": {
+            "name": "The Ordinary Multi-Peptide Serum for Hair Density",
+            "image": "",
+            "whenToUse": "Morning",
+            "howToUse": "Apply a few drops to scalp and massage lightly",
+            "duration": "Leave on",
+            "washProcedure": "No wash required",
+            "tip": "Use only in morning, never after minoxidil"
+          }
+        }
+      },
+      "evening": {
+        "bodyCare": {
+          "bodyMoisturiser": {
+            "name": "Cetaphil Moisturising Cream",
+            "image": "",
+            "whenToUse": "Night",
+            "howToUse": "Apply all over body",
+            "duration": "Overnight",
+            "washProcedure": "Wash next day",
+            "tip": "Daily non-negotiable"
+          }
+        },
+        "buttCare": {
+          "buttMoisturiser": {
+            "name": "CeraVe Moisturising Cream",
+            "image": "",
+            "whenToUse": "Night",
+            "howToUse": "Massage gently",
+            "duration": "Overnight",
+            "washProcedure": "Wash next day",
+            "tip": "Daily maintenance"
+          }
+        },
+        "odourCare": {
+          "underarm": {
+            "name": "Vichy 48H Roll-On",
+            "image": "",
+            "whenToUse": "Night",
+            "howToUse": "Apply on clean skin",
+            "duration": "Overnight",
+            "washProcedure": "Wash next day",
+            "tip": "Keeps odour controlled"
+          }
+        },
+        "hairCare": {
+          "minoxidil": {
+            "name": "Minoxidil 5%",
+            "image": "",
+            "whenToUse": "Night",
+            "howToUse": "1 ml on scalp",
+            "duration": "Overnight",
+            "washProcedure": "Do not wash",
+            "tip": "Daily consistency"
+          }
+        }
+      }
+    },
+
+    "saturday": {
+      "morning": {
+        "shower": {
+          "bodyWash": {
+            "name": "Bioderma Atoderm Shower Gel",
+            "image": "",
+            "whenToUse": "Morning (deep clean day)",
+            "howToUse": "Cleanse thoroughly",
+            "duration": "90 seconds",
+            "washProcedure": "Rinse",
+            "tip": "Prep skin for treatments"
+          },
+          "hairWash": {
+            "name": "Ducray Anaphase+ Shampoo",
+            "image": "",
+            "whenToUse": "Morning (second weekly wash)",
+            "howToUse": "Massage scalp gently",
+            "duration": "60 seconds",
+            "washProcedure": "Rinse thoroughly",
+            "tip": "Twice weekly placement"
+          },
+          "groinWash": {
+            "name": "Sebamed Intimate Wash",
+            "image": "",
+            "whenToUse": "Morning",
+            "howToUse": "External use only",
+            "duration": "30 seconds",
+            "washProcedure": "Rinse and pat dry",
+            "tip": "Deep hygiene"
+          }
+        },
+        "faceCare": {
+          "cleanser": {
+            "name": "La Roche-Posay Toleriane Hydrating Cleanser",
+            "image": "",
+            "whenToUse": "After shower",
+            "howToUse": "Gentle cleanse",
+            "duration": "30 seconds",
+            "washProcedure": "Rinse",
+            "tip": "Prepares skin"
+          },
+          "niacinamide": {
+            "name": "Paula’s Choice 10% Niacinamide Booster",
+            "image": "",
+            "whenToUse": "Morning (second weekly use)",
+            "howToUse": "2–3 drops",
+            "duration": "Leave on",
+            "washProcedure": "Do not wash",
+            "tip": "Twice-weekly placement"
+          },
+          "sunscreen": {
+            "name": "La Roche-Posay Anthelios SPF 50+",
+            "image": "",
+            "whenToUse": "Morning",
+            "howToUse": "Apply generously",
+            "duration": "Leave on",
+            "washProcedure": "Wash at night",
+            "tip": "Mandatory"
+          }
+        }
+      },
+      "evening": {
+        "buttCare": {
+          "buttActive": {
+            "name": "Paula’s Choice 10% AHA Body Lotion",
+            "image": "",
+            "whenToUse": "Night (weekly deep care)",
+            "howToUse": "Thin layer on butt area",
+            "duration": "Overnight",
+            "washProcedure": "Wash next morning",
+            "tip": "Once weekly only"
+          },
+          "buttMoisturiser": {
+            "name": "CeraVe Moisturising Cream",
+            "image": "",
+            "whenToUse": "Night (after AHA absorbs)",
+            "howToUse": "Apply gently",
+            "duration": "Overnight",
+            "washProcedure": "Wash next day",
+            "tip": "Prevents irritation"
+          }
+        },
+        "bodyCare": {
+          "bodyMoisturiser": {
+            "name": "Cetaphil Moisturising Cream",
+            "image": "",
+            "whenToUse": "Night",
+            "howToUse": "Apply all over body",
+            "duration": "Overnight",
+            "washProcedure": "Wash next day",
+            "tip": "Deep hydration"
+          }
+        },
+        "odourCare": {
+          "underarm": {
+            "name": "Vichy 48H Roll-On",
+            "image": "",
+            "whenToUse": "Night",
+            "howToUse": "Apply on clean dry skin",
+            "duration": "Overnight",
+            "washProcedure": "Wash next day",
+            "tip": "Extra protection"
+          }
+        },
+        "hairCare": {
+          "minoxidil": {
+            "name": "Minoxidil 5%",
+            "image": "",
+            "whenToUse": "Night",
+            "howToUse": "1 ml on dry scalp",
+            "duration": "Overnight",
+            "washProcedure": "Do not wash",
+            "tip": "Never skip"
+          }
+        }
+      }
+    },
+
+    "sunday": {
+      "morning": {
+        "shower": {
+          "bodyWash": {
+            "name": "Bioderma Atoderm Shower Gel",
+            "image": "",
+            "whenToUse": "Morning",
+            "howToUse": "Very gentle cleanse",
+            "duration": "45–60 seconds",
+            "washProcedure": "Rinse",
+            "tip": "Recovery day"
+          },
+          "groinWash": {
+            "name": "Sebamed Intimate Wash",
+            "image": "",
+            "whenToUse": "Morning",
+            "howToUse": "External use only",
+            "duration": "20 seconds",
+            "washProcedure": "Rinse and pat dry",
+            "tip": "Light hygiene"
+          }
+        },
+        "faceCare": {
+          "cleanser": {
+            "name": "La Roche-Posay Toleriane Hydrating Cleanser",
+            "image": "",
+            "whenToUse": "After shower",
+            "howToUse": "Gentle massage",
+            "duration": "30 seconds",
+            "washProcedure": "Rinse",
+            "tip": "No actives"
+          },
+          "sunscreen": {
+            "name": "La Roche-Posay Anthelios SPF 50+",
+            "image": "",
+            "whenToUse": "Morning",
+            "howToUse": "Apply generously",
+            "duration": "Leave on",
+            "washProcedure": "Wash at night",
+            "tip": "Skin protection"
+          }
+        },
+        "hairCare": {
+          "scalpSerum": {
+            "name": "The Ordinary Multi-Peptide Serum for Hair Density",
+            "image": "",
+            "whenToUse": "Morning",
+            "howToUse": "Apply a few drops to scalp and massage lightly",
+            "duration": "Leave on",
+            "washProcedure": "No wash required",
+            "tip": "Use only in morning, never after minoxidil"
+          }
+        }
+      },
+      "evening": {
+        "bodyCare": {
+          "bodyMoisturiser": {
+            "name": "Cetaphil Moisturising Cream",
+            "image": "",
+            "whenToUse": "Night",
+            "howToUse": "Apply all over body",
+            "duration": "Overnight",
+            "washProcedure": "Wash next day",
+            "tip": "Recovery hydration"
+          }
+        },
+        "buttCare": {
+          "buttMoisturiser": {
+            "name": "CeraVe Moisturising Cream",
+            "image": "",
+            "whenToUse": "Night",
+            "howToUse": "Massage gently",
+            "duration": "Overnight",
+            "washProcedure": "Wash next day",
+            "tip": "No actives today"
+          }
+        },
+        "odourCare": {
+          "underarm": {
+            "name": "Vichy 48H Roll-On",
+            "image": "",
+            "whenToUse": "Night",
+            "howToUse": "Apply lightly",
+            "duration": "Overnight",
+            "washProcedure": "Wash next day",
+            "tip": "Maintain freshness"
+          }
+        },
+        "hairCare": {
+          "minoxidil": {
+            "name": "Minoxidil 5%",
+            "image": "",
+            "whenToUse": "Night",
+            "howToUse": "Apply 1 ml",
+            "duration": "Overnight",
+            "washProcedure": "Do not wash",
+            "tip": "End week consistently"
+          }
+        }
+      }
+    }
+  }
+}
