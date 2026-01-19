@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Upload Task</title>
+<style>
+    * {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 16px;
+}
+
+/* ===============================
+   MAIN BUTTON
+================================ */
+button {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #fff;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* ===============================
+   MODAL
+================================ */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  justify-content: center;
+  align-items: flex-end;
+}
+
+/* Bottom sheet style on mobile */
+.modal-box {
+  background: #fff;
+  width: 100%;
+  max-height: 90vh;
+  padding: 16px;
+  border-radius: 16px 16px 0 0;
+  overflow-y: auto;
+}
+
+/* Desktop modal */
+@media (min-width: 640px) {
+  .modal {
+    align-items: center;
+  }
+
+  .modal-box {
+    width: 380px;
+    border-radius: 16px;
+    max-height: none;
+  }
+}
+
+/* ===============================
+   FORM ELEMENTS
+================================ */
+select,
+input[type="file"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  font-size: 16px;
+}
+input[type="time"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  margin-top: 8px;
+  border-radius: 8px;
+}
+
+select {
+  border-radius: 8px;
+}
+
+input[type="file"] {
+  border: 1px dashed #ccc;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+/* ===============================
+   IMAGE PREVIEW
+================================ */
+#refPreview {
+  display: none;
+  width: 100%;
+  max-height: 240px;
+  object-fit: contain;
+  margin-top: 12px;
+  border-radius: 10px;
+  background: #f0f0f0;
+}
+
+/* ===============================
+   PROGRESS BAR
+================================ */
+progress {
+  width: 100%;
+  height: 10px;
+  margin-top: 14px;
+  appearance: none;
+}
+
+progress::-webkit-progress-bar {
+  background: #eee;
+  border-radius: 8px;
+}
+
+progress::-webkit-progress-value {
+  background: #2563eb;
+  border-radius: 8px;
+}
+
+/* ===============================
+   MODAL ACTIONS
+================================ */
+.modal-box button {
+  margin-top: 14px;
+}
+
+/* Secondary button */
+.modal-box button:last-child {
+  background: #e5e7eb;
+  color: #111;
+}
+
+</style>
+</head>
+
+<body>
+
+<button id="openBtn">Upload your task</button>
+
+<div class="modal" id="taskModal">
+  <div class="modal-box">
+
+    <h3>Upload Task</h3>
+
+    <select id="categorySelect">
+      <option value="">Select Category</option>
+    </select>
+
+    <select id="imageSelect" style="display:none">
+      <option value="">Select Reference Image</option>
+    </select>
+
+    <img id="refPreview">
+
+    <input type="file" id="practiceFile" accept="image/*">
+
+    <label for="timeTaken" style="margin-top:12px; display:block;">
+    Time Taken (HH:MM)
+    </label>
+
+    <input
+    type="time"
+    id="timeTaken"
+    step="60"
+    value="00:00"
+    />
+
+
+    <progress id="progress" value="0" max="100"></progress>
+
+    <button onclick="submitTask()">Submit</button>
+    <button onclick="closeModal()">Cancel</button>
+
+  </div>
+</div>
+
+<script>
+    /* =====================================================
+   CONFIG — REPLACE THESE
+===================================================== */
+const JSON_WORKER =
+  "https://json-modifier.fpartjob.workers.dev";   // unified json worker
+const UPLOAD_WORKER =
+  "https://media-upload-worker.fpartjob.workers.dev"; // upload worker
+
+/* =====================================================
+   STATE
+===================================================== */
+let mainJson = {};
+let selectedRefUrl = "";
+let selectedCategory = "";
+let selectedImageName = "";
+
+/* =====================================================
+   OPEN / CLOSE MODAL
+===================================================== */
+document.getElementById("openBtn").onclick = () => {
+  document.getElementById("taskModal").style.display = "flex";
+  loadCategories();
+};
+
+function closeModal() {
+  document.getElementById("taskModal").style.display = "none";
+  resetModal();
+}
+
+function resetModal() {
+  document.getElementById("categorySelect").value = "";
+  document.getElementById("imageSelect").style.display = "none";
+  document.getElementById("refPreview").style.display = "none";
+  document.getElementById("practiceFile").value = "";
+  document.getElementById("progress").value = 0;
+  selectedRefUrl = "";
+  document.getElementById("timeTaken").value = "00:00";
+
+}
+
+/* =====================================================
+   LOAD MAIN IMAGE JSON
+===================================================== */
+async function loadCategories() {
+  const res = await fetch(`${JSON_WORKER}?type=images&v=${Date.now()}`);
+  mainJson = await res.json();
+
+  const catSelect = document.getElementById("categorySelect");
+  catSelect.innerHTML =
+    `<option value="">Select Category</option>`;
+
+  Object.keys(mainJson.category).forEach(cat => {
+    catSelect.innerHTML +=
+      `<option value="${cat}">${cat}</option>`;
+  });
+}
+
+/* =====================================================
+   CATEGORY → IMAGE LIST
+===================================================== */
+document.getElementById("categorySelect").onchange = e => {
+  selectedCategory = e.target.value;
+
+  const imgSelect = document.getElementById("imageSelect");
+  imgSelect.style.display = "block";
+  imgSelect.innerHTML =
+    `<option value="">Select Reference Image</option>`;
+
+  Object.entries(mainJson.category[selectedCategory]).forEach(
+    ([name, obj]) => {
+      imgSelect.innerHTML +=
+        `<option value="${obj.image_link}">${name}</option>`;
+    }
+  );
+};
+
+/* =====================================================
+   IMAGE PREVIEW
+===================================================== */
+document.getElementById("imageSelect").onchange = e => {
+  selectedRefUrl = e.target.value;
+
+  const img = document.getElementById("refPreview");
+  img.src = selectedRefUrl;
+  img.style.display = "block";
+};
+
+/* =====================================================
+   SUBMIT TASK
+===================================================== */
+async function submitTask() {
+  const file = document.getElementById("practiceFile").files[0];
+  const timeTaken = document.getElementById("timeTaken").value || "00:00";
+
+  if (!file || !selectedRefUrl) {
+    alert("Please select reference image and upload your task");
+    return;
+  }
+
+  const fd = new FormData();
+  fd.append("file", file);
+
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", UPLOAD_WORKER);
+document.activeElement.blur();
+
+  /* ---------- PROGRESS BAR ---------- */
+  xhr.upload.onprogress = e => {
+    if (e.lengthComputable) {
+      document.getElementById("progress").value =
+        (e.loaded / e.total) * 100;
+    }
+  };
+
+  /* ---------- AFTER UPLOAD ---------- */
+  xhr.onload = async () => {
+    const uploadRes = JSON.parse(xhr.responseText);
+
+    if (!uploadRes.url) {
+      alert("Upload failed");
+      return;
+    }
+
+    const now = new Date();
+
+    await fetch(JSON_WORKER, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+        action: "addTask",
+        refImg: selectedRefUrl,
+        practiceImg: uploadRes.url,
+        date: now.toISOString().split("T")[0],
+        time: now.toTimeString().slice(0, 5),
+        timeTaken: timeTaken
+    })
+    });
+
+
+    alert("Task uploaded successfully ✅");
+    closeModal();
+  };
+
+  xhr.send(fd);
+}
+
+</script>
+</body>
+</html>

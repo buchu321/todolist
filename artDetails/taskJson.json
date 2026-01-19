@@ -1,0 +1,18 @@
+{
+  "tasks": {
+    "task1": {
+      "refImg": "",
+      "practiceImg": "",
+      "date": "",
+      "time": "",
+      "timeTaken": ""
+    },
+    "task2": {
+      "refImg": "",
+      "practiceImg": "",
+      "date": "",
+      "time": "",
+      "timeTaken": ""
+    }
+  }
+}

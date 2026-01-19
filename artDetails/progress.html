@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task Viewer</title>
+<style>
+    * {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #f4f4f4;
+  padding: 12px;
+}
+
+/* ===============================
+   DROPDOWNS
+================================ */
+.top-controls {
+  display: flex;
+  gap: 10px;
+}
+
+select {
+  flex: 1;
+  padding: 12px;
+  font-size: 16px;
+}
+
+/* ===============================
+   TASK BOXES
+================================ */
+#taskContainer {
+  margin-top: 16px;
+}
+
+.task-box {
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 14px;
+  cursor: pointer;
+}
+
+.task-images {
+  display: flex;
+  gap: 8px;
+}
+
+.task-images img {
+  width: 50%;
+  height: 160px;
+  object-fit: contain;
+  background: #eee;
+  border-radius: 8px;
+}
+
+.task-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-top: 6px;
+  color: #444;
+}
+
+/* ===============================
+   FULLSCREEN VIEWER
+================================ */
+.viewer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 999;
+  touch-action: none;
+
+}
+
+.viewer-content {
+  display: flex;
+  height: 100%;
+  touch-action: none;
+
+}
+
+
+
+
+.viewer-content img {
+  width: 50%;
+  object-fit: contain;
+  background: #000;
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* ===============================
+   DESKTOP ENHANCEMENT
+================================ */
+@media (min-width: 768px) {
+  .task-images img {
+    height: 220px;
+  }
+}
+
+
+
+
+</style>
+</head>
+
+<body>
+
+<div class="top-controls">
+  <select id="countSelect">
+    <option value="">Count</option>
+    <script>
+      for (let i = 1; i <= 10; i++) {
+        document.write(`<option value="${i}">${i}</option>`);
+      }
+    </script>
+  </select>
+
+  <select id="taskSelect">
+    <option value="">Select Task</option>
+  </select>
+</div>
+
+<div id="taskContainer"></div>
+
+<!-- FULLSCREEN POPUP -->
+<div class="viewer" id="viewer">
+  <span class="close" onclick="closeViewer()">✕</span>
+  <div class="viewer-content">
+    <img id="viewerRef">
+    <img id="viewerPractice">
+  </div>
+</div>
+
+<script>
+    /* =====================================================
+   CONFIG
+===================================================== */
+const JSON_WORKER =
+  "https://json-modifier.fpartjob.workers.dev?type=tasks";
+
+/* =====================================================
+   STATE
+===================================================== */
+let tasks = {};
+let visibleTaskKeys = [];
+let currentIndex = 0;
+
+/* =====================================================
+   LOAD TASK JSON
+===================================================== */
+async function loadTasks() {
+  const res = await fetch(`${JSON_WORKER}&v=${Date.now()}`);
+  const data = await res.json();
+  tasks = data.tasks || {};
+
+  const taskSelect = document.getElementById("taskSelect");
+  taskSelect.innerHTML = `<option value="">Select Task</option>`;
+
+  Object.keys(tasks).forEach(t => {
+    taskSelect.innerHTML += `<option value="${t}">${t}</option>`;
+  });
+}
+
+loadTasks();
+
+/* =====================================================
+   DROPDOWN HANDLERS
+===================================================== */
+document.getElementById("countSelect").onchange = updateView;
+document.getElementById("taskSelect").onchange = updateView;
+
+/* =====================================================
+   UPDATE VIEW
+===================================================== */
+function updateView() {
+  const count = parseInt(document.getElementById("countSelect").value);
+  const startTask = document.getElementById("taskSelect").value;
+
+  const container = document.getElementById("taskContainer");
+  container.innerHTML = "";
+  visibleTaskKeys = [];
+
+  if (!count || !startTask) return;
+
+  const startIndex = parseInt(startTask.replace("task", ""), 10);
+
+  for (let i = 0; i < count; i++) {
+    const taskKey = `task${startIndex + i}`;
+
+    if (!tasks[taskKey]) {
+      container.innerHTML = `<p>Task not found</p>`;
+      visibleTaskKeys = [];
+      return;
+    }
+
+    visibleTaskKeys.push(taskKey);
+    const t = tasks[taskKey];
+
+    const box = document.createElement("div");
+    box.className = "task-box";
+    box.innerHTML = `
+      <div class="task-images">
+        <img src="${t.refImg}">
+        <img src="${t.practiceImg}">
+      </div>
+      <div class="task-meta">
+        <span>${t.date || ""}</span>
+        <span>${t.timeTaken || ""}</span>
+      </div>
+    `;
+
+    box.onclick = () => {
+      currentIndex = i;
+      openViewer(t.refImg, t.practiceImg);
+    };
+
+    container.appendChild(box);
+  }
+}
+
+/* =====================================================
+   FULLSCREEN VIEWER
+===================================================== */
+function openViewer(ref, practice) {
+  document.getElementById("viewerRef").src = ref;
+  document.getElementById("viewerPractice").src = practice;
+  document.getElementById("viewer").style.display = "block";
+}
+
+function closeViewer() {
+  document.getElementById("viewer").style.display = "none";
+}
+
+/* =====================================================
+   SWIPE LOGIC (FIXED)
+===================================================== */
+let startX = 0;
+let endX = 0;
+
+const swipeArea = document.querySelector(".viewer-content");
+
+swipeArea.addEventListener("touchstart", e => {
+  e.preventDefault();
+  startX = e.touches[0].clientX;
+}, { passive: false });
+
+swipeArea.addEventListener("touchend", e => {
+  e.preventDefault();
+  endX = e.changedTouches[0].clientX;
+  handleSwipe();
+}, { passive: false });
+
+function handleSwipe() {
+  const distance = endX - startX;
+  if (Math.abs(distance) < 60) return;
+
+  if (distance < 0) {
+    swipeNext();
+  } else {
+    swipePrev();
+  }
+}
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+function swipeNext() {
+  if (currentIndex >= visibleTaskKeys.length - 1) return;
+  currentIndex++;
+  const t = tasks[visibleTaskKeys[currentIndex]];
+  openViewer(t.refImg, t.practiceImg);
+}
+
+function swipePrev() {
+  if (currentIndex <= 0) return;
+  currentIndex--;
+  const t = tasks[visibleTaskKeys[currentIndex]];
+  openViewer(t.refImg, t.practiceImg);
+}
+
+/* =====================================================
+   KEYBOARD SUPPORT
+===================================================== */
+document.addEventListener("keydown", e => {
+  const isOpen = document.getElementById("viewer").style.display === "block";
+  if (!isOpen) return;
+
+  if (e.key === "ArrowRight") swipeNext();
+  if (e.key === "ArrowLeft") swipePrev();
+  if (e.key === "Escape") closeViewer();
+});
+
+</script>
+</body>
+</html>
