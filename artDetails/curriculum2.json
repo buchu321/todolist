@@ -1,0 +1,3097 @@
+{
+  "days": [
+    {
+      "day": 101,
+      "title": "Animation Foundations – Thinking in Frames",
+      "phase": "Animation Basics",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Flipbook sketches (paper or digital)",
+          "Repeated simple shapes"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "What animation actually is",
+        "notes": [
+          "Animation is change over time",
+          "Clarity per frame matters",
+          "Good drawing does not equal good animation"
+        ]
+      },
+      "exercise": {
+        "time": "45 min",
+        "tasks": [
+          "Draw 5 frames of a sphere staying still",
+          "Draw 5 frames of the same sphere shifting position"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Timeline enabled",
+          "Frame animation mode",
+          "One layer per frame"
+        ]
+      },
+      "notes_prompt": [
+        "Does each frame read clearly?",
+        "Is change visible?"
+      ],
+      "final_task": "A simple 5–7 frame animation of a sphere moving left to right."
+    },
+
+    {
+      "day": 102,
+      "title": "Timing & Spacing – How Motion Feels",
+      "phase": "Animation Basics",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Draw same shape at equal spacing",
+          "Then uneven spacing"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Difference between timing and spacing",
+        "notes": [
+          "Timing = number of frames",
+          "Spacing = distance between drawings",
+          "Spacing controls speed"
+        ]
+      },
+      "exercise": {
+        "time": "45 min",
+        "tasks": [
+          "Animate a sphere moving slow → fast",
+          "Animate a sphere moving fast → slow"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Onion skin enabled",
+          "Consistent canvas size"
+        ]
+      },
+      "notes_prompt": [
+        "Where does motion feel natural?",
+        "Where does it feel robotic?"
+      ],
+      "final_task": "Two short animations showing different spacing with same frame count."
+    },
+
+    {
+      "day": 103,
+      "title": "Ease In & Ease Out (No Bounce)",
+      "phase": "Animation Basics",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Dot spacing charts",
+          "Slow start / slow stop sketches"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Smoothing transformations",
+        "notes": [
+          "Most motion eases in and out",
+          "No sudden starts or stops",
+          "Important for morphing"
+        ]
+      },
+      "exercise": {
+        "time": "45 min",
+        "tasks": [
+          "Sphere scaling up with ease-in",
+          "Sphere scaling down with ease-out"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Duplicate frames for easing",
+          "Adjust spacing manually"
+        ]
+      },
+      "notes_prompt": [
+        "Does the change feel smooth?",
+        "Where does it snap?"
+      ],
+      "final_task": "A smooth scale-up animation of a sphere using easing."
+    },
+
+    {
+      "day": 104,
+      "title": "Volume Consistency (CRITICAL for Anatomy)",
+      "phase": "Morph Fundamentals",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Sphere redraw consistency",
+          "Same volume, different shapes"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Why volume must stay consistent",
+        "notes": [
+          "Volume should not grow or shrink unintentionally",
+          "Stretch redistributes volume",
+          "Anatomy depends on this"
+        ]
+      },
+      "exercise": {
+        "time": "45 min",
+        "tasks": [
+          "Stretch a sphere into an oval",
+          "Compress it back without size loss"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Overlay previous frame",
+          "Check silhouette size"
+        ]
+      },
+      "notes_prompt": [
+        "Did volume drift?",
+        "Where?"
+      ],
+      "final_task": "A stretch-compress animation that preserves volume."
+    },
+
+    {
+      "day": 105,
+      "title": "Shape to Shape Morph – Sphere to Cube",
+      "phase": "Morph Fundamentals",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Draw spheres and cubes",
+          "Match their volumes"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Logical shape transformation",
+        "notes": [
+          "Do not jump shapes",
+          "Corners emerge gradually",
+          "Mid-forms matter"
+        ]
+      },
+      "exercise": {
+        "time": "45 min",
+        "tasks": [
+          "Sphere → rounded cube",
+          "Rounded cube → hard cube"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Keyframes marked",
+          "Break transformation into steps"
+        ]
+      },
+      "notes_prompt": [
+        "Did the morph feel logical?",
+        "Were there sudden shape changes?"
+      ],
+      "final_task": "A clean sphere-to-cube morph animation."
+    },
+
+    {
+      "day": 106,
+      "title": "Directional Morphing & Arcs",
+      "phase": "Morph Fundamentals",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Curved motion paths",
+          "Arc sketches"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Avoiding straight-line stiffness",
+        "notes": [
+          "Most transformations follow arcs",
+          "Arcs improve organic feel",
+          "Important for body parts"
+        ]
+      },
+      "exercise": {
+        "time": "45 min",
+        "tasks": [
+          "Morph a sphere while moving on an arc",
+          "Cube rotating while morphing"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Motion path sketch layer"
+        ]
+      },
+      "notes_prompt": [
+        "Does the motion feel organic?",
+        "Is the arc clear?"
+      ],
+      "final_task": "A morph animation following a visible arc."
+    },
+
+    {
+      "day": 107,
+      "title": "Simple Anatomy Morph – Cylinder to Limb Mass",
+      "phase": "Anatomy Morph Intro",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Cylinder redraws",
+          "Simple limb block shapes"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Introducing anatomy logic into morphs",
+        "notes": [
+          "Cylinder represents bone",
+          "Bulges suggest muscle mass",
+          "No detail yet"
+        ]
+      },
+      "exercise": {
+        "time": "45 min",
+        "tasks": [
+          "Cylinder → tapered limb",
+          "Add simple muscle bulges"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Bone layer",
+          "Mass layer"
+        ]
+      },
+      "notes_prompt": [
+        "Does limb feel solid?",
+        "Did volume stay consistent?"
+      ],
+      "final_task": "A simple limb morph from cylinder to muscle mass."
+    },
+
+    {
+      "day": 108,
+      "title": "Mini Sequence – Shape to Anatomy",
+      "phase": "Integration",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Quick shape redraws",
+          "Gesture reminders"
+        ]
+      },
+      "lesson": {
+        "time": "20 min",
+        "focus": "Combining all basics into one sequence",
+        "notes": [
+          "Clarity over speed",
+          "Each stage must read",
+          "This is educational animation"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Sphere → cube → cylinder → simple limb",
+          "Hold each stage clearly"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Label stages",
+          "Consistent timing"
+        ]
+      },
+      "notes_prompt": [
+        "Is transformation readable?",
+        "Which stage needs more frames?"
+      ],
+      "final_task": "A clear multi-stage morph showing shape → anatomy logic."
+    },
+
+    {
+      "day": 109,
+      "title": "Torso Morph – Box to Rib Cage",
+      "phase": "Torso Morph",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Boxes in perspective",
+          "Rib cage ovals over boxes"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Rib cage as a solid volume",
+        "notes": [
+          "Rib cage is barrel-shaped",
+          "Width and depth matter more than detail",
+          "No muscles yet"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Box → rounded box",
+          "Rounded box → rib cage form",
+          "Hold final rib cage for clarity"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Frame labels for each stage",
+          "Overlay previous frame to check volume"
+        ]
+      },
+      "notes_prompt": [
+        "Did volume remain consistent?",
+        "Does rib cage feel 3D?"
+      ],
+      "final_task": "A clear morph from box to rib cage volume."
+    },
+
+    {
+      "day": 110,
+      "title": "Pelvis Morph – Block to Hip Structure",
+      "phase": "Pelvis Morph",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Pelvis block sketches",
+          "Front and side views"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Pelvis as a tilted bowl",
+        "notes": [
+          "Pelvis tilts independently from rib cage",
+          "Width differs by gender",
+          "Think bowl, not flat plate"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Box → tilted box",
+          "Tilted box → bowl shape pelvis",
+          "Add iliac crest indication"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Rotation guide layer",
+          "Front/side comparison"
+        ]
+      },
+      "notes_prompt": [
+        "Is tilt readable?",
+        "Does pelvis feel supportive?"
+      ],
+      "final_task": "A pelvis morph that clearly shows tilt and volume."
+    },
+
+    {
+      "day": 111,
+      "title": "Torso Assembly – Rib Cage + Pelvis Relationship",
+      "phase": "Torso Integration",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Gesture lines connecting two blocks",
+          "Torso tilt sketches"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "How rib cage and pelvis relate",
+        "notes": [
+          "They do not stack straight",
+          "Gesture connects them",
+          "Space between is flexible"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Animate rib cage appearing first",
+          "Pelvis fades/morphs in underneath",
+          "Add connecting spine gesture"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Separate rib cage and pelvis layers",
+          "Spine gesture overlay"
+        ]
+      },
+      "notes_prompt": [
+        "Does torso feel balanced?",
+        "Is connection clear?"
+      ],
+      "final_task": "A torso build showing rib cage + pelvis relationship."
+    },
+
+    {
+      "day": 112,
+      "title": "Upper Limb Morph – Bone to Arm Mass",
+      "phase": "Limb Morph",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Arm cylinders",
+          "Joint hinge sketches"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Bones define direction, muscles define volume",
+        "notes": [
+          "Upper arm and forearm differ",
+          "Joints need space",
+          "Avoid sausage arms"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Single cylinder → segmented arm bones",
+          "Add upper arm mass",
+          "Add forearm taper"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Bone layer",
+          "Mass layer"
+        ]
+      },
+      "notes_prompt": [
+        "Did limb bend logically?",
+        "Was volume preserved?"
+      ],
+      "final_task": "An arm morph from bone cylinders to muscle mass."
+    },
+
+    {
+      "day": 113,
+      "title": "Lower Limb Morph – Bone to Leg Mass",
+      "phase": "Limb Morph",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Leg cylinders",
+          "Knee alignment sketches"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Leg structure and weight support",
+        "notes": [
+          "Thigh vs calf mass difference",
+          "Knee breaks silhouette",
+          "Legs support torso weight"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Cylinder → femur/tibia structure",
+          "Add thigh mass",
+          "Add calf mass"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Ground plane reference",
+          "Weight line through leg"
+        ]
+      },
+      "notes_prompt": [
+        "Does leg feel supportive?",
+        "Is knee placement clear?"
+      ],
+      "final_task": "A leg morph showing bone-to-mass transformation."
+    },
+
+    {
+      "day": 114,
+      "title": "Shoulder & Hip Attachments",
+      "phase": "Anatomy Connections",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Ball-and-socket sketches",
+          "Attachment point studies"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Where limbs connect to torso",
+        "notes": [
+          "Shoulders sit on rib cage",
+          "Hips embed into pelvis",
+          "Attachments must feel anchored"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Animate arm attaching to torso",
+          "Animate leg attaching to pelvis"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Highlight attachment points",
+          "Slow timing for clarity"
+        ]
+      },
+      "notes_prompt": [
+        "Do attachments feel solid?",
+        "Any floating parts?"
+      ],
+      "final_task": "A clear limb-to-torso attachment animation."
+    },
+
+    {
+      "day": 115,
+      "title": "Torso Twist & Tilt Morph",
+      "phase": "Dynamic Anatomy",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Twisting boxes",
+          "Gesture spine curves"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Showing flexibility without breaking structure",
+        "notes": [
+          "Rib cage and pelvis twist differently",
+          "Spine is the mediator",
+          "Volume still holds"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Neutral torso → twisted torso",
+          "Tilted pelvis under stable rib cage"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Ghost previous pose",
+          "Check silhouette change"
+        ]
+      },
+      "notes_prompt": [
+        "Does twist read clearly?",
+        "Any volume loss?"
+      ],
+      "final_task": "A torso morph showing twist and tilt."
+    },
+
+    {
+      "day": 116,
+      "title": "Mini Sequence – Full Limb + Torso Build",
+      "phase": "Integration",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Gesture recap",
+          "Simple stick figure"
+        ]
+      },
+      "lesson": {
+        "time": "20 min",
+        "focus": "Combining anatomy morphs into a readable lesson",
+        "notes": [
+          "Sequence order matters",
+          "Pause at teaching moments",
+          "This is explainer animation"
+        ]
+      },
+      "exercise": {
+        "time": "75 min",
+        "tasks": [
+          "Gesture → rib cage → pelvis",
+          "Add one arm and one leg",
+          "Hold final pose"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Stage labels",
+          "Consistent timing"
+        ]
+      },
+      "notes_prompt": [
+        "Is the build understandable?",
+        "Where does it feel rushed?"
+      ],
+      "final_task": "A short explainer-style animation showing torso + limb construction."
+    },
+
+    {
+      "day": 117,
+      "title": "Gesture to Skeleton – The Foundation",
+      "phase": "Skeleton Morph",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Loose gesture lines",
+          "Stick figure poses"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Why skeleton follows gesture",
+        "notes": [
+          "Gesture defines flow",
+          "Skeleton locks structure",
+          "Bones follow movement, not vice versa"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Gesture line appears",
+          "Stick figure forms over it",
+          "Skeleton replaces stick figure"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Gesture layer",
+          "Skeleton layer"
+        ]
+      },
+      "notes_prompt": [
+        "Does skeleton follow gesture?",
+        "Is pose readable?"
+      ],
+      "final_task": "A clear morph from gesture line to simple skeleton."
+    },
+
+    {
+      "day": 118,
+      "title": "Spine & Rib Cage Skeleton Build",
+      "phase": "Skeleton Morph",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Spine curves",
+          "Rib cage placement sketches"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Spine as motion core",
+        "notes": [
+          "Spine controls torso movement",
+          "Rib cage attaches to spine",
+          "Avoid stiff straight spines"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Spine appears first",
+          "Rib cage attaches segment by segment",
+          "Hold completed torso skeleton"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Spine drawn through rib cage",
+          "Segmented build timing"
+        ]
+      },
+      "notes_prompt": [
+        "Does torso feel flexible?",
+        "Is rib cage placement clear?"
+      ],
+      "final_task": "A readable spine-to-rib cage skeleton animation."
+    },
+
+    {
+      "day": 119,
+      "title": "Pelvis & Leg Skeleton Assembly",
+      "phase": "Skeleton Morph",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Pelvis tilt sketches",
+          "Leg bone alignment"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Weight-bearing structure",
+        "notes": [
+          "Pelvis supports torso",
+          "Legs attach clearly at hip joints",
+          "Symmetry matters here"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Pelvis appears under rib cage",
+          "Femur → tibia → foot bones",
+          "Hold full lower skeleton"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Hip joint markers",
+          "Ground plane guide"
+        ]
+      },
+      "notes_prompt": [
+        "Does skeleton feel stable?",
+        "Is leg length consistent?"
+      ],
+      "final_task": "A complete lower-body skeleton build animation."
+    },
+
+    {
+      "day": 120,
+      "title": "Arm & Shoulder Girdle Skeleton",
+      "phase": "Skeleton Morph",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Shoulder girdle sketches",
+          "Arm bone cylinders"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Arm attachment and mobility",
+        "notes": [
+          "Clavicle defines shoulder width",
+          "Arms hang from shoulder girdle",
+          "Elbows define rotation"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Clavicle + scapula appear",
+          "Humerus → radius → ulna",
+          "Attach arms to torso"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Shoulder structure layer",
+          "Arm bone layer"
+        ]
+      },
+      "notes_prompt": [
+        "Do arms feel attached?",
+        "Is shoulder width believable?"
+      ],
+      "final_task": "A full upper-body skeleton build animation."
+    },
+
+    {
+      "day": 121,
+      "title": "Skeleton to Muscle – Big Muscle Groups",
+      "phase": "Muscle Layering",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Simple muscle mass shapes",
+          "Cylinder over bone"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Muscles as masses over bones",
+        "notes": [
+          "Start with big muscle groups",
+          "Avoid detail",
+          "Muscles wrap bones"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Skeleton fades back",
+          "Major muscle masses appear",
+          "Chest, shoulders, thighs only"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Skeleton at low opacity",
+          "Muscle mass layer"
+        ]
+      },
+      "notes_prompt": [
+        "Do muscles feel attached?",
+        "Is volume logical?"
+      ],
+      "final_task": "A clear skeleton-to-major-muscle morph."
+    },
+
+    {
+      "day": 122,
+      "title": "Torso Muscle Layering",
+      "phase": "Muscle Layering",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Chest mass sketches",
+          "Abdominal block shapes"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Torso muscle organization",
+        "notes": [
+          "Chest overlaps rib cage",
+          "Abdominals stack vertically",
+          "Muscles follow rib cage form"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Add chest mass",
+          "Add abdomen mass",
+          "Show overlap clearly"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Color-coded muscle groups",
+          "Hold final torso"
+        ]
+      },
+      "notes_prompt": [
+        "Does torso feel solid?",
+        "Are overlaps clear?"
+      ],
+      "final_task": "A torso muscle layering animation over skeleton."
+    },
+
+    {
+      "day": 123,
+      "title": "Arm & Leg Muscle Layering",
+      "phase": "Muscle Layering",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Upper/lower limb mass sketches",
+          "Taper studies"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Simplified limb muscle logic",
+        "notes": [
+          "Upper limb bulk near torso",
+          "Lower limb bulk near thigh",
+          "Avoid equal thickness"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Add arm muscles over bones",
+          "Add leg muscles over bones",
+          "Maintain taper"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Bone fade layer",
+          "Muscle clarity layer"
+        ]
+      },
+      "notes_prompt": [
+        "Does taper feel natural?",
+        "Any sausage shapes?"
+      ],
+      "final_task": "A limb muscle layering animation."
+    },
+
+    {
+      "day": 124,
+      "title": "Mini Sequence – Skeleton to Muscle Body",
+      "phase": "Integration",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Gesture recap",
+          "Quick skeleton sketch"
+        ]
+      },
+      "lesson": {
+        "time": "20 min",
+        "focus": "Teaching anatomy through sequencing",
+        "notes": [
+          "Order matters",
+          "Pause for understanding",
+          "This is explainer animation"
+        ]
+      },
+      "exercise": {
+        "time": "75 min",
+        "tasks": [
+          "Gesture → skeleton",
+          "Skeleton → major muscles",
+          "Hold final muscular body"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Stage labels",
+          "Consistent timing"
+        ]
+      },
+      "notes_prompt": [
+        "Is anatomy readable?",
+        "Where does it feel rushed?"
+      ],
+      "final_task": "A short explainer animation showing skeleton → muscle layering."
+    },
+
+    {
+      "day": 125,
+      "title": "Muscle to Skin – Surface Wrapping",
+      "phase": "Skin Layering",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Smooth contour redraws",
+          "Muscle silhouette tracing"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "How skin simplifies muscle complexity",
+        "notes": [
+          "Skin smooths transitions",
+          "Muscle borders soften",
+          "Surface follows underlying masses"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Muscle form visible",
+          "Skin layer fades in",
+          "Muscle lines fade out gradually"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Muscle layer low opacity",
+          "Skin contour layer on top"
+        ]
+      },
+      "notes_prompt": [
+        "Did surface feel smoother?",
+        "Any anatomy lost?"
+      ],
+      "final_task": "A clean muscle-to-skin morph showing surface simplification."
+    },
+
+    {
+      "day": 126,
+      "title": "Surface Flow & Anatomy Lines",
+      "phase": "Surface Logic",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Cross-contour lines",
+          "Simple surface flow arrows"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Showing form with surface direction",
+        "notes": [
+          "Lines follow form direction",
+          "Surface flow reveals volume",
+          "Avoid random line placement"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Add surface flow lines to torso",
+          "Animate flow appearing over skin"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Surface flow layer",
+          "Directional arrows first"
+        ]
+      },
+      "notes_prompt": [
+        "Does flow describe form?",
+        "Any confusing directions?"
+      ],
+      "final_task": "A skin surface animation showing clear form flow."
+    },
+
+    {
+      "day": 127,
+      "title": "Fat & Soft Tissue Simplification",
+      "phase": "Surface Anatomy",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Soft edge redraws",
+          "Hard vs soft transition sketches"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Understanding softness over structure",
+        "notes": [
+          "Fat softens muscle edges",
+          "Different body areas soften differently",
+          "Avoid over-definition"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Muscle body → softened body",
+          "Fade sharp muscle borders"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Soft brush pass",
+          "Edge clarity control"
+        ]
+      },
+      "notes_prompt": [
+        "Did body feel more natural?",
+        "Any over-smoothing?"
+      ],
+      "final_task": "A muscle-to-soft-body morph showing fat distribution."
+    },
+
+    {
+      "day": 128,
+      "title": "Male vs Female Surface Differences",
+      "phase": "Comparative Anatomy",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Male vs female torso silhouettes",
+          "Hip and chest comparison"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Surface-level gender differences",
+        "notes": [
+          "Male surfaces show harder plane breaks",
+          "Female surfaces show smoother curves",
+          "Differences are subtle but clear"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Same muscle base",
+          "Morph into male surface",
+          "Morph into female surface"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Split-screen comparison",
+          "Shared timing"
+        ]
+      },
+      "notes_prompt": [
+        "Do differences read clearly?",
+        "Any exaggeration too strong?"
+      ],
+      "final_task": "A male vs female surface anatomy morph."
+    },
+
+    {
+      "day": 129,
+      "title": "Stylized Anatomy – Simplifying Reality",
+      "phase": "Stylization",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Simple body icons",
+          "Blocky human silhouettes"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Reducing anatomy to essential shapes",
+        "notes": [
+          "Simplification improves teaching",
+          "Remove small bumps",
+          "Big shapes first"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Realistic surface body",
+          "Morph into simplified stylized body"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Simplified shape layer",
+          "Clean silhouettes"
+        ]
+      },
+      "notes_prompt": [
+        "Is it clearer?",
+        "What was removed?"
+      ],
+      "final_task": "A realistic-to-stylized anatomy morph."
+    },
+
+    {
+      "day": 130,
+      "title": "Gesture to Stylized Body Build",
+      "phase": "Stylized Integration",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Gesture lines",
+          "Stick-to-block bodies"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Teaching anatomy through stylized build-up",
+        "notes": [
+          "Gesture stays visible",
+          "Structure simplified",
+          "Readability first"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Gesture appears",
+          "Blocks form",
+          "Stylized body resolves"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Gesture layer persistent",
+          "Build layers labeled"
+        ]
+      },
+      "notes_prompt": [
+        "Is build order clear?",
+        "Does gesture survive?"
+      ],
+      "final_task": "A stylized body built clearly from gesture."
+    },
+
+    {
+      "day": 131,
+      "title": "Surface Anatomy in Motion (Subtle Deformation)",
+      "phase": "Surface Motion",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Soft squash/stretch",
+          "Surface ripple sketches"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Skin movement without cartoony bounce",
+        "notes": [
+          "Surface reacts subtly",
+          "Muscle motion is restrained",
+          "Clarity over realism"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Small torso twist",
+          "Surface deformation stays minimal"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Ghost previous frame",
+          "Minimal deformation"
+        ]
+      },
+      "notes_prompt": [
+        "Did motion feel natural?",
+        "Any exaggeration too strong?"
+      ],
+      "final_task": "A subtle surface-motion anatomy animation."
+    },
+
+    {
+      "day": 132,
+      "title": "Mini Sequence – Full Anatomy to Stylized Human",
+      "phase": "Integration",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Quick gesture recap",
+          "Simplified body sketch"
+        ]
+      },
+      "lesson": {
+        "time": "20 min",
+        "focus": "Communicating anatomy clearly and beautifully",
+        "notes": [
+          "Sequence order is critical",
+          "Each stage must read instantly",
+          "This is teaching animation"
+        ]
+      },
+      "exercise": {
+        "time": "75 min",
+        "tasks": [
+          "Skeleton → muscle → skin",
+          "Skin → stylized body",
+          "Hold final pose"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Stage labels",
+          "Even timing"
+        ]
+      },
+      "notes_prompt": [
+        "Is the lesson clear?",
+        "Which stage needs more time?"
+      ],
+      "final_task": "A complete explainer-style morph from anatomy to stylized human body."
+    },
+
+    {
+      "day": 133,
+      "title": "Head Morph – Sphere to Skull",
+      "phase": "Face Anatomy Morph",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Sphere redraws",
+          "Jaw attachment sketches"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "The skull as a modified sphere",
+        "notes": [
+          "Cranium holds volume",
+          "Jaw attaches, it does not replace",
+          "No facial features yet"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Sphere appears",
+          "Jaw block attaches",
+          "Skull planes emerge gradually"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Construction layer visible",
+          "Stage labels"
+        ]
+      },
+      "notes_prompt": [
+        "Does skull feel solid?",
+        "Is jaw attachment clear?"
+      ],
+      "final_task": "A clean sphere-to-skull morph animation."
+    },
+
+    {
+      "day": 134,
+      "title": "Skull Planes & Facial Structure",
+      "phase": "Face Anatomy Morph",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Planar head sketches",
+          "Flat surface breaks"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Planes define face direction and light",
+        "notes": [
+          "Forehead, cheek, jaw planes",
+          "Planes clarify structure",
+          "Avoid softening too early"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Skull fades to planar head",
+          "Planes snap into place"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Hard edge brush",
+          "Plane overlay"
+        ]
+      },
+      "notes_prompt": [
+        "Do planes read instantly?",
+        "Any confusing transitions?"
+      ],
+      "final_task": "A skull-to-planar-head morph."
+    },
+
+    {
+      "day": 135,
+      "title": "Facial Muscles – Big Groups Only",
+      "phase": "Face Muscle Layering",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Facial muscle mass blobs",
+          "Eye and mouth ring sketches"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Facial muscles as functional groups",
+        "notes": [
+          "Muscles pull skin, not draw detail",
+          "Eyes and mouth are circular systems",
+          "Simplify aggressively"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Planar head visible",
+          "Major muscle groups fade in",
+          "Avoid naming or labeling"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Muscle layer color-coded",
+          "Low opacity build"
+        ]
+      },
+      "notes_prompt": [
+        "Do muscles feel logical?",
+        "Is complexity controlled?"
+      ],
+      "final_task": "A planar-head to muscle-layer morph."
+    },
+
+    {
+      "day": 136,
+      "title": "Muscle to Skin – Face Surface Formation",
+      "phase": "Face Surface",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Smooth facial contours",
+          "Soft transition redraws"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "How skin simplifies facial anatomy",
+        "notes": [
+          "Skin hides muscle borders",
+          "Planes soften but remain",
+          "Landmarks still matter"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Muscle visibility fades",
+          "Skin surface resolves",
+          "Hold clean face surface"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Skin contour layer",
+          "Muscle layer faded back"
+        ]
+      },
+      "notes_prompt": [
+        "Does face feel believable?",
+        "Any anatomy lost?"
+      ],
+      "final_task": "A face morph from muscle to clean skin surface."
+    },
+
+    {
+      "day": 137,
+      "title": "Male vs Female Face Surface Morph",
+      "phase": "Comparative Face Anatomy",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Male/female skull silhouette comparison",
+          "Jaw and brow differences"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Surface-level gender differences",
+        "notes": [
+          "Male faces show harder plane breaks",
+          "Female faces show smoother transitions",
+          "Differences are subtle but intentional"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Same muscle base",
+          "Morph to male surface",
+          "Morph to female surface"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Split-screen or A/B layers",
+          "Shared timing"
+        ]
+      },
+      "notes_prompt": [
+        "Do gender cues read clearly?",
+        "Any over-exaggeration?"
+      ],
+      "final_task": "A male vs female face surface morph animation."
+    },
+
+    {
+      "day": 138,
+      "title": "Face Rotation Morph – Understanding Volume",
+      "phase": "Face in Space",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Sphere rotation sketches",
+          "Center-line rotations"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Rotating the face without breaking structure",
+        "notes": [
+          "Rotate volumes, not features",
+          "Center line drives orientation",
+          "Avoid sliding features"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Front face",
+          "Morph to 3/4",
+          "Morph to profile"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Center-line guide",
+          "Ghost previous pose"
+        ]
+      },
+      "notes_prompt": [
+        "Does volume hold?",
+        "Any face flattening?"
+      ],
+      "final_task": "A clean face rotation morph animation."
+    },
+
+    {
+      "day": 139,
+      "title": "Stylized Face Construction Morph",
+      "phase": "Stylization",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Simplified face icons",
+          "Blocky head shapes"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Teaching face construction through stylization",
+        "notes": [
+          "Stylization increases clarity",
+          "Remove small complexity",
+          "Big shapes dominate"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Realistic face surface",
+          "Morph into stylized face"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Simplified shape layer",
+          "Clean silhouette"
+        ]
+      },
+      "notes_prompt": [
+        "Is stylized face clearer?",
+        "What was removed?"
+      ],
+      "final_task": "A realistic-to-stylized face morph."
+    },
+
+    {
+      "day": 140,
+      "title": "Final Explainer Reel – Face Construction",
+      "phase": "Capstone",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Quick recap sketches",
+          "Sequence planning thumbnails"
+        ]
+      },
+      "lesson": {
+        "time": "20 min",
+        "focus": "Communicating face anatomy clearly and professionally",
+        "notes": [
+          "Sequence order matters",
+          "Pause at learning moments",
+          "This is portfolio material"
+        ]
+      },
+      "exercise": {
+        "time": "90 min",
+        "tasks": [
+          "Sphere → skull → planes",
+          "Planes → muscles → skin",
+          "Skin → stylized face",
+          "Hold final frame"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Stage labels",
+          "Even pacing",
+          "Clean background"
+        ]
+      },
+      "notes_prompt": [
+        "Is the lesson understandable without words?",
+        "Which stage teaches the most?"
+      ],
+      "final_task": "A complete face anatomy explainer reel suitable for portfolio or teaching."
+    },
+
+    {
+      "day": 141,
+      "title": "Rotation Fundamentals – Object vs Camera",
+      "phase": "Rotation Basics",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Rotating cubes",
+          "Center-axis sketches"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Difference between rotating an object and rotating the camera",
+        "notes": [
+          "Object rotation changes form orientation",
+          "Camera rotation changes viewpoint",
+          "Result may look similar but logic differs"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Static cube, camera rotates 180°",
+          "Cube rotates, camera stays fixed"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Center pivot marked",
+          "Camera arc drawn"
+        ]
+      },
+      "notes_prompt": [
+        "Which feels clearer?",
+        "Where does perspective shift?"
+      ],
+      "final_task": "Two short rotations: object-rotation vs camera-rotation."
+    },
+
+    {
+      "day": 142,
+      "title": "Rotating the Head – Fixed Axis",
+      "phase": "Head Rotation",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Sphere rotations",
+          "Center-line spins"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Rotating the head around a vertical axis",
+        "notes": [
+          "Head rotates around spine",
+          "Center line defines orientation",
+          "Features wrap, not slide"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Front → 3/4 → profile",
+          "Hold each angle for readability"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Center-line guide",
+          "Ghost previous frame"
+        ]
+      },
+      "notes_prompt": [
+        "Does volume stay intact?",
+        "Any feature drifting?"
+      ],
+      "final_task": "A clean head rotation around a fixed axis."
+    },
+
+    {
+      "day": 143,
+      "title": "Tilting & Nodding Head Rotation",
+      "phase": "Head Rotation",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Sphere tilt sketches",
+          "Jaw angle changes"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Pitch rotation (up/down)",
+        "notes": [
+          "Top planes reveal or hide",
+          "Jaw silhouette changes",
+          "Neck supports motion"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Neutral head → up tilt",
+          "Neutral head → down tilt"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Horizon line guide",
+          "Plane emphasis"
+        ]
+      },
+      "notes_prompt": [
+        "Does tilt feel natural?",
+        "Is skull logic intact?"
+      ],
+      "final_task": "A head tilt rotation that reads clearly."
+    },
+
+    {
+      "day": 144,
+      "title": "Rotating Individual Body Parts",
+      "phase": "Part Rotation",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Cylinder rotation",
+          "Joint axis sketches"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Understanding limb rotation limits",
+        "notes": [
+          "Joints rotate around axes",
+          "Forms taper and overlap",
+          "No rubber limbs"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Arm rotation at shoulder",
+          "Leg rotation at hip"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Joint pivot marked",
+          "Rotation arc visible"
+        ]
+      },
+      "notes_prompt": [
+        "Does rotation feel anchored?",
+        "Any volume loss?"
+      ],
+      "final_task": "A rotating limb animation with clear joint logic."
+    },
+
+    {
+      "day": 145,
+      "title": "Torso Rotation – Twist & Yaw",
+      "phase": "Torso Rotation",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Twisting boxes",
+          "Spine curve sketches"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "How rib cage and pelvis rotate differently",
+        "notes": [
+          "Rib cage and pelvis counter-rotate",
+          "Spine connects motion",
+          "Avoid single-block torso"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Neutral torso → twist",
+          "Hold twist for clarity"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Separate rib cage & pelvis layers",
+          "Spine visible"
+        ]
+      },
+      "notes_prompt": [
+        "Does twist feel believable?",
+        "Is separation clear?"
+      ],
+      "final_task": "A torso rotation showing rib cage vs pelvis movement."
+    },
+
+    {
+      "day": 146,
+      "title": "Camera Orbit Around Static Body",
+      "phase": "Camera Rotation",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Perspective grid warmups",
+          "Circular camera paths"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Orbiting camera around a fixed pose",
+        "notes": [
+          "Body stays still",
+          "Perspective changes",
+          "Silhouette evolves"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Static standing figure",
+          "Camera rotates 180°"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Camera path overlay",
+          "Consistent body proportions"
+        ]
+      },
+      "notes_prompt": [
+        "Does figure feel solid?",
+        "Any sliding?"
+      ],
+      "final_task": "A camera orbit animation around a static body."
+    },
+
+    {
+      "day": 147,
+      "title": "Camera Orbit Around a Posed Figure",
+      "phase": "Advanced Camera",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Dynamic pose sketches",
+          "Silhouette checks"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Maintaining pose integrity during camera movement",
+        "notes": [
+          "Foreshortening increases",
+          "Overlaps change",
+          "Pose must stay readable"
+        ]
+      },
+      "exercise": {
+        "time": "75 min",
+        "tasks": [
+          "Choose a strong pose",
+          "Camera rotates 120° around it"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Pose locked layer",
+          "Camera arc guide"
+        ]
+      },
+      "notes_prompt": [
+        "Did pose stay consistent?",
+        "Any anatomy drift?"
+      ],
+      "final_task": "A camera orbit around a dynamic posed figure."
+    },
+
+    {
+      "day": 148,
+      "title": "Mini Reel – Rotation Mastery",
+      "phase": "Integration",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Quick rotation sketches"
+        ]
+      },
+      "lesson": {
+        "time": "20 min",
+        "focus": "Combining rotations into a teaching sequence",
+        "notes": [
+          "Rotation must teach form",
+          "Pause at key angles",
+          "Clarity beats speed"
+        ]
+      },
+      "exercise": {
+        "time": "90 min",
+        "tasks": [
+          "Head rotation",
+          "Torso rotation",
+          "Full-body camera orbit"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Clean background",
+          "Even pacing"
+        ]
+      },
+      "notes_prompt": [
+        "Is form readable at all angles?",
+        "Which rotation teaches best?"
+      ],
+      "final_task": "A short rotation-focused explainer reel showing spatial mastery."
+    },
+
+    {
+      "day": 149,
+      "title": "Action Fundamentals – Weight, Balance & Contact",
+      "phase": "Action Basics",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Gesture lines with weight shift",
+          "Balance line sketches"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Why action is about weight, not limbs",
+        "notes": [
+          "Every action has support and fall",
+          "Center of gravity drives motion",
+          "Feet define truth"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Standing → weight shift left",
+          "Standing → weight shift right",
+          "Hold contact frames"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Ground line visible",
+          "Center-of-mass line"
+        ]
+      },
+      "notes_prompt": [
+        "Does weight feel real?",
+        "Is balance believable?"
+      ],
+      "final_task": "A short animation showing clear weight shift while standing."
+    },
+
+    {
+      "day": 150,
+      "title": "Walk Cycle – Structure & Contact Poses",
+      "phase": "Walking",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Stick figure walk poses",
+          "Leg swing arcs"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "The 4 main walk poses",
+        "notes": [
+          "Contact",
+          "Down",
+          "Passing",
+          "Up",
+          "Arms counter legs"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Draw 4 key walk poses",
+          "Loop without in-betweens"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Pose per frame",
+          "Simple mannequin body"
+        ]
+      },
+      "notes_prompt": [
+        "Does walk read without motion blur?",
+        "Is step length consistent?"
+      ],
+      "final_task": "A readable 4-pose walk cycle (no in-betweens)."
+    },
+
+    {
+      "day": 151,
+      "title": "Walk Cycle – In-Betweens & Smoothness",
+      "phase": "Walking",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Spacing dots",
+          "Ease-in / ease-out drills"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Making motion feel natural",
+        "notes": [
+          "Feet stay planted during contact",
+          "Hips move smoothly",
+          "Avoid sliding"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Add breakdown frames",
+          "Create clean looping walk"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Onion skin",
+          "Loop preview"
+        ]
+      },
+      "notes_prompt": [
+        "Any foot sliding?",
+        "Does rhythm feel even?"
+      ],
+      "final_task": "A smooth looping walk cycle with correct foot contact."
+    },
+
+    {
+      "day": 152,
+      "title": "Daily Activity – Reaching, Lifting & Placing",
+      "phase": "Everyday Motion",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Reach gesture sketches",
+          "Arm extension arcs"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Simple functional actions",
+        "notes": [
+          "Reach originates from shoulder",
+          "Body adjusts for balance",
+          "Hands finish the action"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Standing → reach forward",
+          "Pick up object",
+          "Place object down"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Object layer",
+          "Clear start/end frames"
+        ]
+      },
+      "notes_prompt": [
+        "Did body compensate?",
+        "Was reach believable?"
+      ],
+      "final_task": "A short animation of a person reaching and placing an object."
+    },
+
+    {
+      "day": 153,
+      "title": "Daily Activity – Sitting, Standing & Turning",
+      "phase": "Everyday Motion",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Sit/stand gesture lines",
+          "Hip hinge sketches"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Transitions between states",
+        "notes": [
+          "Hips initiate sit and stand",
+          "Spine compresses and extends",
+          "Feet stay grounded"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Standing → sitting",
+          "Sitting → standing",
+          "Add small torso turn"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Chair reference line",
+          "Ground contact markers"
+        ]
+      },
+      "notes_prompt": [
+        "Did motion feel heavy?",
+        "Any floating?"
+      ],
+      "final_task": "A believable sit-to-stand animation."
+    },
+
+    {
+      "day": 154,
+      "title": "Dance Basics – Rhythm & Repetition",
+      "phase": "Dance Foundations",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Beat-based gesture lines",
+          "Bounce timing sketches"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Movement driven by rhythm",
+        "notes": [
+          "Dance exaggerates timing",
+          "Weight shifts are clearer",
+          "Repetition creates flow"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Side step → return",
+          "Add arm swing",
+          "Loop motion"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Beat markers",
+          "Loop preview"
+        ]
+      },
+      "notes_prompt": [
+        "Does motion feel rhythmic?",
+        "Is repetition clean?"
+      ],
+      "final_task": "A simple looping dance step animation."
+    },
+
+    {
+      "day": 155,
+      "title": "Action Integration – Short Everyday Sequence",
+      "phase": "Integration",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Loose full-body gestures"
+        ]
+      },
+      "lesson": {
+        "time": "20 min",
+        "focus": "Combining actions into readable motion",
+        "notes": [
+          "Actions flow into each other",
+          "End one motion before next",
+          "Clarity over speed"
+        ]
+      },
+      "exercise": {
+        "time": "90 min",
+        "tasks": [
+          "Walk → stop",
+          "Reach → lift",
+          "Turn body",
+          "Hold final pose"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Action labels",
+          "Consistent character proportions"
+        ]
+      },
+      "notes_prompt": [
+        "Does sequence feel natural?",
+        "Where did it break?"
+      ],
+      "final_task": "A short everyday-action animation sequence."
+    },
+
+    {
+      "day": 156,
+      "title": "Advanced Walk – Hips, Shoulders & Counter-Rotation",
+      "phase": "Advanced Walking",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Torso counter-rotation sketches",
+          "Hip swing arcs"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Upper and lower body coordination",
+        "notes": [
+          "Hips and shoulders counter-rotate",
+          "Spine absorbs motion",
+          "Walk becomes alive through opposition"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Modify existing walk cycle",
+          "Add hip sway",
+          "Add shoulder counter-rotation"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Torso rotation guide",
+          "Loop preview enabled"
+        ]
+      },
+      "notes_prompt": [
+        "Does the walk feel looser?",
+        "Is rotation subtle, not forced?"
+      ],
+      "final_task": "A walk cycle with visible hip and shoulder counter-rotation."
+    },
+
+    {
+      "day": 157,
+      "title": "Walk Variations – Mood & Speed",
+      "phase": "Advanced Walking",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Fast vs slow stride sketches",
+          "Posture changes"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "How speed and posture change motion",
+        "notes": [
+          "Long strides feel confident",
+          "Short strides feel cautious",
+          "Posture affects center of gravity"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Normal walk",
+          "Fast walk",
+          "Heavy/sluggish walk"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Same character proportions",
+          "Different timing charts"
+        ]
+      },
+      "notes_prompt": [
+        "Does speed read instantly?",
+        "What changed the most?"
+      ],
+      "final_task": "Three walk variations using the same character."
+    },
+
+    {
+      "day": 158,
+      "title": "Run Cycle – Key Poses & Flight Phase",
+      "phase": "Running",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Run pose gestures",
+          "Leg extension arcs"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "How running differs from walking",
+        "notes": [
+          "Both feet leave the ground",
+          "Forward lean increases",
+          "Arms drive momentum"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Contact pose",
+          "Flight pose",
+          "Opposite contact"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Ground line visible",
+          "Pose labels"
+        ]
+      },
+      "notes_prompt": [
+        "Is flight phase clear?",
+        "Does run feel energetic?"
+      ],
+      "final_task": "A readable 3-pose run cycle (no in-betweens)."
+    },
+
+    {
+      "day": 159,
+      "title": "Run Cycle – Smooth Loop & Impact Control",
+      "phase": "Running",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Impact compression sketches",
+          "Ease-in spacing dots"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Controlling impact and rhythm",
+        "notes": [
+          "Legs absorb shock",
+          "Torso stays relatively stable",
+          "Avoid stiff pogo motion"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Add in-betweens",
+          "Smooth the loop",
+          "Check foot placement"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Onion skin",
+          "Loop preview"
+        ]
+      },
+      "notes_prompt": [
+        "Any foot sliding?",
+        "Does impact feel grounded?"
+      ],
+      "final_task": "A smooth looping run cycle."
+    },
+
+    {
+      "day": 160,
+      "title": "Carrying Objects – Center of Mass Shift",
+      "phase": "Carrying Weight",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "One-sided weight gestures",
+          "Balance line sketches"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "How weight changes posture and gait",
+        "notes": [
+          "Body leans to compensate",
+          "Steps adjust for balance",
+          "Arms stabilize load"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Standing with object",
+          "Begin walking while carrying"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Object layer",
+          "Center-of-mass guide"
+        ]
+      },
+      "notes_prompt": [
+        "Does load feel heavy?",
+        "Is balance believable?"
+      ],
+      "final_task": "A short animation of walking while carrying an object."
+    },
+
+    {
+      "day": 161,
+      "title": "Carrying Heavy Objects – Lift, Hold & Move",
+      "phase": "Carrying Weight",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Lift-from-ground gestures",
+          "Spine compression sketches"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Heavy weight mechanics",
+        "notes": [
+          "Legs lift, not back",
+          "Pause before movement",
+          "Motion is slower and deliberate"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Bend → lift",
+          "Stabilize",
+          "Take first step"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Clear key poses",
+          "Hold frames for weight"
+        ]
+      },
+      "notes_prompt": [
+        "Does lift feel heavy?",
+        "Is timing slow enough?"
+      ],
+      "final_task": "A believable heavy-lift and carry animation."
+    },
+
+    {
+      "day": 162,
+      "title": "Integration – Walk, Run & Carry Sequence",
+      "phase": "Integration",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Loose full-body gestures"
+        ]
+      },
+      "lesson": {
+        "time": "20 min",
+        "focus": "Switching between locomotion states",
+        "notes": [
+          "Each action has a clear end",
+          "Momentum carries forward",
+          "Clarity beats speed"
+        ]
+      },
+      "exercise": {
+        "time": "90 min",
+        "tasks": [
+          "Walk → stop",
+          "Lift object",
+          "Carry → short run",
+          "Stop and hold"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Action labels",
+          "Consistent character model"
+        ]
+      },
+      "notes_prompt": [
+        "Do transitions feel logical?",
+        "Where does motion break?"
+      ],
+      "final_task": "A short sequence combining walking, running, and carrying."
+    },
+
+    {
+      "day": 163,
+      "title": "Force & Reaction Fundamentals",
+      "phase": "Fight Basics",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Push-force arrows",
+          "Balance line sketches"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Every action creates an equal reaction",
+        "notes": [
+          "Force travels through the body",
+          "Feet determine truth",
+          "Reaction matters more than strike"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Static figure pushed at chest",
+          "Show center-of-mass shift",
+          "Hold imbalance frame"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Ground line",
+          "Force arrows layer"
+        ]
+      },
+      "notes_prompt": [
+        "Does force direction read?",
+        "Is balance clearly broken?"
+      ],
+      "final_task": "A push reaction showing clear loss of balance."
+    },
+
+    {
+      "day": 164,
+      "title": "Push & Pull – Body-to-Body Interaction",
+      "phase": "Fight Basics",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Two-figure gesture sketches",
+          "Opposing force arrows"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Interaction through contact",
+        "notes": [
+          "Bodies affect each other",
+          "Both figures must react",
+          "No frozen characters"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Figure A pushes Figure B",
+          "Figure B stumbles",
+          "Figure A recoils slightly"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Two-character layers",
+          "Contact point marker"
+        ]
+      },
+      "notes_prompt": [
+        "Did both figures react?",
+        "Is contact believable?"
+      ],
+      "final_task": "A two-character push or pull interaction animation."
+    },
+
+    {
+      "day": 165,
+      "title": "Punch Mechanics – Wind-Up, Contact, Recovery",
+      "phase": "Strike Mechanics",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Arm swing arcs",
+          "Torso twist sketches"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Punches are full-body actions",
+        "notes": [
+          "Power comes from legs and hips",
+          "Arm follows torso",
+          "Recovery is part of the punch"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Wind-up pose",
+          "Contact pose",
+          "Recovery pose"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Pose labels",
+          "Arc guides"
+        ]
+      },
+      "notes_prompt": [
+        "Does punch feel driven by body?",
+        "Is recovery clear?"
+      ],
+      "final_task": "A 3-pose punch animation (no impact reaction yet)."
+    },
+
+    {
+      "day": 166,
+      "title": "Impact Reaction – Hit, Stagger, Recover",
+      "phase": "Strike Reaction",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Head snap sketches",
+          "Torso recoil gestures"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Selling impact through reaction",
+        "notes": [
+          "Reaction sells the hit",
+          "Delay improves clarity",
+          "Avoid over-exaggeration"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Punch contact",
+          "Reaction frame (stagger)",
+          "Recovery stance"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Impact frame held longer",
+          "Force arrows optional"
+        ]
+      },
+      "notes_prompt": [
+        "Does hit feel strong?",
+        "Is reaction readable?"
+      ],
+      "final_task": "A punch with clear hit reaction and recovery."
+    },
+
+    {
+      "day": 167,
+      "title": "Dodging & Evasion – Avoiding Force",
+      "phase": "Defense Mechanics",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Side-step gestures",
+          "Lean-and-shift sketches"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Avoiding impact through movement",
+        "notes": [
+          "Dodging shifts center of mass",
+          "Small movements are effective",
+          "Feet reposition quickly"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Incoming punch",
+          "Body lean / step aside",
+          "Return to balance"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Incoming force guide",
+          "Foot position markers"
+        ]
+      },
+      "notes_prompt": [
+        "Is dodge believable?",
+        "Does body re-balance?"
+      ],
+      "final_task": "A clean dodge animation avoiding a strike."
+    },
+
+    {
+      "day": 168,
+      "title": "Falls – Losing Balance & Ground Contact",
+      "phase": "Falls",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Falling gesture lines",
+          "Ground contact sketches"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "How bodies fall realistically",
+        "notes": [
+          "Loss of balance first",
+          "Gravity takes over",
+          "Ground contact ends motion"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Stagger → fall",
+          "Mid-air rotation",
+          "Ground impact and settle"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Ground plane",
+          "Hold final impact frame"
+        ]
+      },
+      "notes_prompt": [
+        "Does fall feel heavy?",
+        "Any floating?"
+      ],
+      "final_task": "A believable fall with weight and ground impact."
+    },
+
+    {
+      "day": 169,
+      "title": "Fight Interaction Mini-Sequence",
+      "phase": "Integration",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Loose combat gestures"
+        ]
+      },
+      "lesson": {
+        "time": "20 min",
+        "focus": "Combining force, reaction, and recovery",
+        "notes": [
+          "Each action causes a reaction",
+          "Pause for clarity",
+          "Educational readability first"
+        ]
+      },
+      "exercise": {
+        "time": "90 min",
+        "tasks": [
+          "Approach",
+          "Punch attempt",
+          "Dodge",
+          "Counter push",
+          "Fall and settle"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Two-character consistency",
+          "Action labels"
+        ]
+      },
+      "notes_prompt": [
+        "Is sequence understandable?",
+        "Where did motion break?"
+      ],
+      "final_task": "A short fight interaction sequence showing cause and effect."
+    },
+
+    {
+      "day": 170,
+      "title": "Energy Flow Fundamentals – Ground to Body",
+      "phase": "Energy Basics",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Force arrows from ground",
+          "Center-of-mass lines"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Where power really comes from",
+        "notes": [
+          "Energy starts at ground contact",
+          "Legs generate force",
+          "Upper body transfers energy"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Standing push into ground",
+          "Energy arrows traveling upward",
+          "Hold power-accumulation frame"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Ground plane visible",
+          "Energy arrows layer"
+        ]
+      },
+      "notes_prompt": [
+        "Is force direction clear?",
+        "Does body look loaded?"
+      ],
+      "final_task": "A short animation showing energy building from the ground into the body."
+    },
+
+    {
+      "day": 171,
+      "title": "Jumping – Load, Launch & Air Phase",
+      "phase": "Jump Mechanics",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Crouch gestures",
+          "Leg compression sketches"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Three phases of a jump",
+        "notes": [
+          "Load (compression)",
+          "Launch (extension)",
+          "Air (release)"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Standing → crouch",
+          "Explosive takeoff",
+          "Clear air pose"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Ground contact markers",
+          "Timing holds on crouch"
+        ]
+      },
+      "notes_prompt": [
+        "Does jump feel powerful?",
+        "Is launch clear?"
+      ],
+      "final_task": "A clean jump animation showing load, launch, and air phase."
+    },
+
+    {
+      "day": 172,
+      "title": "Jump Landing – Impact Absorption",
+      "phase": "Jump Mechanics",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Landing compression sketches",
+          "Spine flexion gestures"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "How the body absorbs impact",
+        "notes": [
+          "Legs absorb shock first",
+          "Torso follows",
+          "No stiff landings"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Air pose",
+          "Foot contact",
+          "Compression and settle"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Impact frame held",
+          "Compression check"
+        ]
+      },
+      "notes_prompt": [
+        "Does landing feel heavy?",
+        "Any bouncing?"
+      ],
+      "final_task": "A believable jump landing animation with weight."
+    },
+
+    {
+      "day": 173,
+      "title": "Throwing – Wind-Up to Release",
+      "phase": "Throw Mechanics",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Torso twist sketches",
+          "Arm whip arcs"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Sequential energy transfer",
+        "notes": [
+          "Power starts in legs",
+          "Torso rotates before arm",
+          "Hand releases last"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Wind-up pose",
+          "Mid-rotation pose",
+          "Release pose"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Energy arrows",
+          "Arc guides"
+        ]
+      },
+      "notes_prompt": [
+        "Does motion feel whip-like?",
+        "Is release clear?"
+      ],
+      "final_task": "A 3-pose throwing animation showing energy transfer."
+    },
+
+    {
+      "day": 174,
+      "title": "Kicking – Balance, Swing & Follow-Through",
+      "phase": "Kick Mechanics",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Balance poses",
+          "Leg swing arcs"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Single-leg power and stability",
+        "notes": [
+          "Support leg is critical",
+          "Hips lead the kick",
+          "Follow-through completes motion"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Chamber pose",
+          "Kick extension",
+          "Follow-through"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Support foot marker",
+          "Hip rotation guide"
+        ]
+      },
+      "notes_prompt": [
+        "Is balance believable?",
+        "Does kick feel strong?"
+      ],
+      "final_task": "A clear kicking animation showing power and balance."
+    },
+
+    {
+      "day": 175,
+      "title": "Sports Motion Comparison – Weak vs Strong",
+      "phase": "Energy Analysis",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Weak vs strong pose sketches"
+        ]
+      },
+      "lesson": {
+        "time": "30 min",
+        "focus": "Why some motions feel powerful",
+        "notes": [
+          "Weak motion lacks sequencing",
+          "Strong motion shows clear flow",
+          "Energy loss points matter"
+        ]
+      },
+      "exercise": {
+        "time": "60 min",
+        "tasks": [
+          "Weak jump version",
+          "Strong jump version",
+          "Side-by-side comparison"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Split screen",
+          "Energy arrows visible"
+        ]
+      },
+      "notes_prompt": [
+        "Where is energy lost?",
+        "What improved power?"
+      ],
+      "final_task": "A comparison animation showing weak vs strong motion."
+    },
+
+    {
+      "day": 176,
+      "title": "Sports Action Mini-Reel – Energy in Motion",
+      "phase": "Integration",
+      "warmup": {
+        "time": "15 min",
+        "tasks": [
+          "Loose athletic gestures"
+        ]
+      },
+      "lesson": {
+        "time": "20 min",
+        "focus": "Teaching motion through sequencing",
+        "notes": [
+          "Each action has buildup and release",
+          "Pause for understanding",
+          "Clarity beats speed"
+        ]
+      },
+      "exercise": {
+        "time": "90 min",
+        "tasks": [
+          "Jump with landing",
+          "Throw with release",
+          "Kick with follow-through",
+          "Hold final poses"
+        ]
+      },
+      "photoshop": {
+        "setup": [
+          "Clean background",
+          "Consistent character proportions",
+          "Stage labels"
+        ]
+      },
+      "notes_prompt": [
+        "Is energy flow readable?",
+        "Which action teaches best?"
+      ],
+      "final_task": "A short sports-motion explainer reel showing energy transfer."
+    }
+  ]
+}
