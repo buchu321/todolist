@@ -309,8 +309,6 @@ async function submitImage() {
   xhr.onload = async () => {
     const res = JSON.parse(xhr.responseText);
 
-    console.log("UPLOAD RESPONSE:", res); // 🔍 DEBUG (keep for now)
-
     await fetch(JSON_WORKER, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -322,9 +320,9 @@ async function submitImage() {
       })
     });
 
-    // alert("Image uploaded successfully");
-    // closeModals();
-    // location.reload();
+    alert("Image uploaded successfully");
+    closeModals();
+    location.reload();
   };
 
   xhr.send(fd);
