@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Image Manager</title>
+<style>
+    * {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background: #f2f2f2;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+select, input, button {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+}
+
+#imageList {
+  margin-top: 20px;
+}
+
+.image-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.image-item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.actions button {
+  flex: 1;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box {
+  background: #fff;
+  padding: 20px;
+  width: 300px;
+  border-radius: 10px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+#preview {
+  display: none;
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 6px;
+}
+
+progress {
+  width: 100%;
+  margin-top: 10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h2>Image Library</h2>
+
+  <select id="categorySelect">
+    <option value="">Select Category</option>
+  </select>
+
+  <div id="imageList"></div>
+
+  <div class="actions">
+    <button id="addCategoryBtn">Add Category</button>
+    <button id="addImageBtn">Add Image</button>
+  </div>
+
+</div>
+
+<!-- ADD CATEGORY MODAL -->
+<div class="modal" id="categoryModal">
+  <div class="modal-box">
+    <h3>Add Category</h3>
+    <input id="newCategoryName" placeholder="Category name">
+    <div class="modal-actions">
+      <button onclick="submitCategory()">Submit</button>
+      <button onclick="closeModals()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- ADD IMAGE MODAL -->
+<div class="modal" id="imageModal">
+  <div class="modal-box">
+    <h3>Add Image</h3>
+
+    <select id="imageCategorySelect"></select>
+
+    <input type="file" id="imageFile" accept="image/*">
+    <img id="preview">
+
+    <input id="imageName" placeholder="Image name">
+
+    <progress id="uploadProgress" value="0" max="100"></progress>
+
+    <div class="modal-actions">
+      <button onclick="submitImage()">Submit</button>
+      <button onclick="closeModals()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script>
+    /* ===============================
+   CONFIG (REPLACE THESE)
+================================ */
+const JSON_WORKER = "https://json-modifier.fpartjob.workers.dev/";
+const UPLOAD_WORKER = "https://media-upload-worker.fpartjob.workers.dev/";
+console.log("JSON WORKER URL:", JSON_WORKER);
+
+/* ===============================
+   GLOBAL STATE
+================================ */
+let jsonData = {};
+
+/* ===============================
+   INIT
+================================ */
+loadJSON();
+
+async function loadJSON() {
+  const res = await fetch(JSON_WORKER + "?v=" + Date.now(), {
+                cache: "no-store"
+                })
+
+  jsonData = await res.json();
+
+  const select = document.getElementById("categorySelect");
+  select.innerHTML = `<option value="">Select Category</option>`;
+
+  Object.keys(jsonData.category).forEach(cat => {
+    select.innerHTML += `<option value="${cat}">${cat}</option>`;
+  });
+}
+
+/* ===============================
+   CATEGORY SELECTION
+================================ */
+document.getElementById("categorySelect").onchange = e => {
+  showImages(e.target.value);
+};
+
+function showImages(category) {
+  const list = document.getElementById("imageList");
+  list.innerHTML = "";
+
+  if (!category) return;
+
+  const images = jsonData.category[category];
+
+  Object.entries(images).forEach(([name, obj]) => {
+    const div = document.createElement("div");
+    div.className = "image-item";
+
+    div.innerHTML = `
+      <img loading="lazy" src="${obj.image_link}">
+      <span>${name}</span>
+    `;
+
+    div.onclick = () => downloadImage(obj.image_link, category, name);
+    list.appendChild(div);
+  });
+}
+
+/* ===============================
+   DOWNLOAD + LOAD COUNT
+================================ */
+async function downloadImage(url, category, imageName) {
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+
+  await fetch(JSON_WORKER, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      action: "increment",
+      category,
+      image: imageName
+    })
+  });
+}
+
+/* ===============================
+   MODALS
+================================ */
+function closeModals() {
+  document.querySelectorAll(".modal").forEach(m => m.style.display = "none");
+}
+
+document.getElementById("addCategoryBtn").onclick = () =>
+  document.getElementById("categoryModal").style.display = "flex";
+
+document.getElementById("addImageBtn").onclick = () => {
+  const sel = document.getElementById("imageCategorySelect");
+  sel.innerHTML = Object.keys(jsonData.category)
+    .map(c => `<option value="${c}">${c}</option>`)
+    .join("");
+  document.getElementById("imageModal").style.display = "flex";
+};
+
+/* ===============================
+   ADD CATEGORY
+================================ */
+async function submitCategory() {
+  const name = document.getElementById("newCategoryName").value.trim();
+  if (!name) return alert("Enter category name");
+
+  await fetch(JSON_WORKER, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      action: "addCategory",
+      name
+    })
+  });
+
+  alert("Category added");
+  location.reload();
+}
+
+/* ===============================
+   IMAGE PREVIEW
+================================ */
+document.getElementById("imageFile").onchange = e => {
+  const file = e.target.files[0];
+  const img = document.getElementById("preview");
+  img.src = URL.createObjectURL(file);
+  img.style.display = "block";
+};
+
+/* ===============================
+   ADD IMAGE
+================================ */
+async function submitImage() {
+  const file = document.getElementById("imageFile").files[0];
+  const name = document.getElementById("imageName").value.trim();
+  const category = document.getElementById("imageCategorySelect").value;
+
+  if (!file || !name) return alert("Missing fields");
+
+  const fd = new FormData();
+  fd.append("file", file);
+
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", UPLOAD_WORKER);
+
+  xhr.upload.onprogress = e => {
+    if (e.lengthComputable) {
+      document.getElementById("uploadProgress").value =
+        (e.loaded / e.total) * 100;
+    }
+  };
+
+  xhr.onload = async () => {
+    const res = JSON.parse(xhr.responseText);
+
+    console.log("UPLOAD RESPONSE:", res); // 🔍 DEBUG (keep for now)
+
+    await fetch(JSON_WORKER, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        action: "addImage",
+        category,
+        imageName: name,
+        imageLink: res.url   // ✅ CORRECT
+      })
+    });
+
+    // alert("Image uploaded successfully");
+    // closeModals();
+    // location.reload();
+  };
+
+  xhr.send(fd);
+}
+
+</script>
+</body>
+</html>

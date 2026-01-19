@@ -1,0 +1,16 @@
+<input type="file" id="f">
+<button onclick="u()">Upload</button>
+
+<script>
+async function u() {
+  const fd = new FormData();
+  fd.append("file", document.getElementById("f").files[0]);
+
+  const r = await fetch("https://media-upload-worker.fpartjob.workers.dev/", {
+    method: "POST",
+    body: fd
+  });
+
+  console.log(await r.json());
+}
+</script>

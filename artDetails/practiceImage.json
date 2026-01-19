@@ -1,0 +1,24 @@
+{
+  "category": {
+    "boy": {
+      "boy_anatomy_1": {
+        "image_link": "https://pub-65cb212e96cd44d9b832663d445e5560.r2.dev/images/b1.jpg",
+        "load_count": 0
+      },
+      "boy_anatomy_2": {
+        "image_link": "https://pub-65cb212e96cd44d9b832663d445e5560.r2.dev/images/b2.jpg",
+        "load_count": 0
+      }
+    },
+    "girl": {
+      "girl_anatomy_1": {
+        "image_link": "https://pub-65cb212e96cd44d9b832663d445e5560.r2.dev/images/g1.jpg",
+        "load_count": 0
+      },
+      "girl_anatomy_2": {
+        "image_link": "https://pub-65cb212e96cd44d9b832663d445e5560.r2.dev/images/g2.jpg",
+        "load_count": 0
+      }
+    }
+  }
+}
