@@ -1,0 +1,62 @@
+{
+  "day": {
+    "wakeUp": {
+      "wakeUpIn530_600": false,
+      "brush": false,
+      "waterGlass": false
+    },
+    "study": {
+      "theory": false,
+      "noteMaking": false,
+      "qna": false
+    },
+    "gym": {
+      "Day1_Push": false,
+      "Day2_Pull": false,
+      "Day3_Legs": false,
+      "Day4_Core": false,
+      "Day5_Glutes": false,
+      "Day6_Yoga": false,
+      "Day7_Rest": false
+    },
+    "shower": {
+      "Shower": false,
+      "showerGel": false,
+      "shampoo": false,
+      "ducrayAnaphase": false
+    },
+    "mornSkincare": {
+      "sebaMed": false,
+      "clenser": false,
+      "vitaminSerum": false,
+      "sunScreen": false,
+      "paulasChoice": false
+    },
+    "odourCare": {
+      "rollOn": false
+    },
+    "hairCare": {
+      "hairSerum": false,
+      "minoxidil": false
+    },
+    "nightSkincare": {
+      "ceraVe": false
+    },
+    "buttCare": {
+      "cetaphil": false,
+      "paulasChoiceAhaBodylotion": false
+    },
+    "art": {
+      "practiced": false
+    },
+    "blender": {
+      "practiced": false
+    },
+    "sculpting": {
+      "practiced": false
+    },
+    "sleep": {
+      "sleepAt10": false
+    }
+  }
+}

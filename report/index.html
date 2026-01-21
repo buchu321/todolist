@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Week Report Viewer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h1>Week Report</h1>
+
+    <select id="weekSelect"></select>
+<select id="sectionSelect"></select>
+    <div class="table-wrapper">
+      <table id="reportTable"></table>
+    </div>
+  </div>
+<div id="iconPopup" class="icon-popup hidden"></div>
+  <script>
+        const SUPABASE_URL = "https://nxbhrwztqivalyaxbodt.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im54Ymhyd3p0cWl2YWx5YXhib2R0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgxNTAxNTQsImV4cCI6MjA4MzcyNjE1NH0.-h0URoccYncxURRs8fXNmAr-iw_SL6rk-NrP73u5ppU";
+
+const BUCKET_NAME = "images";
+const REPORT_FILE = "dayReport.json";
+
+const weekSelect = document.getElementById("weekSelect");
+const table = document.getElementById("reportTable");
+
+let reportData = {};
+let allDays = [];
+let allTasks = [];
+
+
+
+const TASK_ICONS = {
+  // Wake up
+  wakeUpIn530_600: "⏰",
+  brush: "🪥",
+  waterGlass: "💧",
+
+  // Study
+  theory: "📖",
+  noteMaking: "📝",
+  qna: "❓",
+
+  // Gym
+  Day1_Push: "💪",
+  Day2_Pull: "🏋️",
+  Day3_Legs: "🦵",
+  Day4_Core: "🧘",
+  Day5_Glutes: "🍑",
+  Day6_Yoga: "🧘‍♂️",
+  Day7_Rest: "😴",
+
+  // Shower
+  Shower: "🚿",
+  showerGel: "🧴",
+  shampoo: "🧼",
+  ducrayAnaphase: "🧪",
+
+  // Skincare
+  sebaMed: "🧴",
+  clenser: "🧼",
+  vitaminSerum: "💉",
+  sunScreen: "☀️",
+  paulasChoice: "🧪",
+  ceraVe: "🧴",
+
+  // Care
+  rollOn: "🌿",
+  hairSerum: "💇",
+  minoxidil: "🧪",
+  cetaphil: "🧴",
+  paulasChoiceAhaBodylotion: "🧪",
+
+  // Creative
+  practiced: "🎨",
+
+  // Sleep
+  sleepAt10: "🛌"
+};
+
+function getTaskIcon(taskKey) {
+  return TASK_ICONS[taskKey] || "⬜";
+}
+
+const popup = document.getElementById("iconPopup");
+
+function showPopup(text) {
+  popup.textContent = text;
+  popup.classList.remove("hidden");
+
+  clearTimeout(popup._timer);
+  popup._timer = setTimeout(() => {
+    popup.classList.add("hidden");
+  }, 2000);
+}
+
+document.addEventListener("click", () => {
+  popup.classList.add("hidden");
+});
+
+
+function formatLabel(text) {
+  return text
+    .replace(/([A-Z])/g, " $1")      // split camelCase
+    .replace(/[_\.]/g, " ")          // remove underscores & dots
+    .trim()
+    .replace(/^./, c => c.toUpperCase());
+}
+
+
+const sectionSelect = document.getElementById("sectionSelect");
+let currentWeek = "current";
+let currentSection = "all";
+/* ---------------- FETCH REPORT ---------------- */
+async function fetchReport() {
+  const res = await fetch(
+    `${SUPABASE_URL}/storage/v1/object/public/${BUCKET_NAME}/${REPORT_FILE}?t=${Date.now()}`,
+    { cache: "no-store" }
+  );
+
+  reportData = await res.json();
+  allDays = Object.keys(reportData)
+    .map(Number)
+    .sort((a, b) => a - b);
+
+  extractTasks();
+  buildWeekOptions();
+  renderWeek("current");
+}
+
+/* ---------------- GET TASK LIST ---------------- */
+function extractTasks() {
+  const firstDay = reportData[allDays[0]];
+  allTasks = [];
+
+  for (const section in firstDay) {
+    for (const task in firstDay[section]) {
+      allTasks.push({ section, task });
+    }
+  }
+
+  buildSectionOptions(firstDay);
+}
+
+function buildSectionOptions(day) {
+  sectionSelect.innerHTML = "";
+
+  const allOpt = document.createElement("option");
+  allOpt.value = "all";
+  allOpt.textContent = "All Tasks";
+  sectionSelect.appendChild(allOpt);
+
+  for (const section in day) {
+    const opt = document.createElement("option");
+    opt.value = section;
+    opt.textContent = section;
+    sectionSelect.appendChild(opt);
+  }
+
+  sectionSelect.addEventListener("change", e => {
+    currentSection = e.target.value;
+    renderWeek(currentWeek);
+  });
+}
+
+
+/* ---------------- WEEK DROPDOWN ---------------- */
+function buildWeekOptions() {
+  weekSelect.innerHTML = "";
+
+  const currentOpt = document.createElement("option");
+  currentOpt.value = "current";
+  currentOpt.textContent = "Current Week";
+  weekSelect.appendChild(currentOpt);
+
+  const totalWeeks = Math.ceil(allDays.length / 7);
+
+  for (let i = 1; i <= totalWeeks; i++) {
+    const opt = document.createElement("option");
+    opt.value = i;
+    opt.textContent = `Week ${i}`;
+    weekSelect.appendChild(opt);
+  }
+
+ weekSelect.addEventListener("change", e => {
+  currentWeek = e.target.value;
+  renderWeek(currentWeek);
+});
+}
+
+/* ---------------- RENDER WEEK ---------------- */
+function renderWeek(week) {
+  currentWeek = week;
+
+  let daysToShow = [];
+
+  if (week === "current") {
+    daysToShow = allDays.slice(-7);
+  } else {
+    const start = (week - 1) * 7;
+    daysToShow = allDays.slice(start, start + 7);
+  }
+
+  renderTable(daysToShow);
+}
+
+
+function formatDate(date) {
+  return date.toLocaleDateString(undefined, {
+    day: "2-digit",
+    month: "short"
+  });
+}
+
+function getDateForDayIndex(dayIndex, lastIndex) {
+  const today = new Date();
+  const diff = lastIndex - dayIndex;
+  const d = new Date(today);
+  d.setDate(today.getDate() - diff);
+  return formatDate(d);
+}
+
+function getWeekStart(date) {
+  const d = new Date(date);
+  const day = d.getDay() || 7; // make Sunday = 7
+  d.setDate(d.getDate() - day + 1); // Monday start
+  d.setHours(0, 0, 0, 0);
+  return d;
+}
+
+function sameWeek(d1, d2) {
+  return getWeekStart(d1).getTime() === getWeekStart(d2).getTime();
+}
+
+function getWeekLabel(date) {
+  const today = new Date();
+  const thisWeek = getWeekStart(today);
+  const targetWeek = getWeekStart(date);
+
+  const diffWeeks = Math.round(
+    (thisWeek - targetWeek) / (7 * 24 * 60 * 60 * 1000)
+  );
+
+  if (diffWeeks === 0) return "This Week";
+  if (diffWeeks === 1) return "Last Week";
+  return `${diffWeeks} Weeks Ago`;
+}
+
+/* ---------------- TABLE ---------------- */
+function renderTable(days) {
+  table.innerHTML = "";
+
+  const lastIndex = Math.max(...allDays);
+
+  /* Filter tasks by section */
+  const visibleTasks =
+    currentSection === "all"
+      ? allTasks
+      : allTasks.filter(t => t.section === currentSection);
+
+  /* Header */
+  const header = document.createElement("tr");
+
+  const dateTh = document.createElement("th");
+  dateTh.textContent = "Date";
+  dateTh.className = "day-col";
+  header.appendChild(dateTh);
+
+  visibleTasks.forEach(({ section, task }) => {
+    const th = document.createElement("th");
+    th.textContent = getTaskIcon(task);
+th.style.cursor = "pointer";
+
+th.addEventListener("click", e => {
+  e.stopPropagation(); // prevent auto-close
+  showPopup(formatLabel(task));
+});
+ // tooltip on hover / long press
+    header.appendChild(th);
+  });
+
+  table.appendChild(header);
+
+  /* Rows */
+  days.forEach(dayIndex => {
+    const today = new Date();
+    const diff = lastIndex - dayIndex;
+    const rowDate = new Date(today);
+    rowDate.setDate(today.getDate() - diff);
+
+    const row = document.createElement("tr");
+
+    /* Date column */
+    const dateCell = document.createElement("td");
+    dateCell.className = "day-col";
+    dateCell.textContent = `${rowDate.toLocaleDateString(undefined, {
+      day: "2-digit",
+      month: "short"
+    })} (${rowDate.toLocaleDateString(undefined, {
+      weekday: "long"
+    })})`;
+    row.appendChild(dateCell);
+
+    /* Task columns */
+    visibleTasks.forEach(({ section, task }) => {
+      const val = reportData[dayIndex][section][task];
+      const td = document.createElement("td");
+      td.textContent = val ? "✔" : "✖";
+      td.className = val ? "true" : "false";
+      row.appendChild(td);
+    });
+
+    table.appendChild(row);
+  });
+}
+
+/* ---------------- INIT ---------------- */
+fetchReport();
+
+  </script>
+</body>
+</html>
